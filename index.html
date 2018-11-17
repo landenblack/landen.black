@@ -1,0 +1,96 @@
+
+<title>L&N</title>
+<link rel="shortcut icon" type="image/x-icon" href="/public/pizza.ico" />
+<style>
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+
+* {
+  -webkit-tap-highlight-color: transparent;
+  user-drag: none; 
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  -webkit-touch-callout: none;
+  box-sizing: border-box;
+}
+
+#pleasedonteatme {  
+  cursor: pointer;
+  width : 160px;
+  height: 160px;
+}
+
+#box {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 90%;
+}
+
+.title {
+  font-size: 5em;
+  color: #ffe183;
+  font-family: 'Raleway', sans-serif;
+  font-weight: bold;
+}
+
+body {
+  height: 97vh;
+  background: #9e825b;
+}
+
+#header {
+  display: flex;
+  text-align: center;
+  height: 10%;
+}
+
+#header div {
+  flex: 1 1 auto;
+}
+
+#header a {
+  font-size: 3em;
+  color: #ffe183;
+  text-decoration: none;
+  font-weight: bold;
+  font-family: 'Raleway', sans-serif;
+  letter-spacing: 3px;
+  transition: all .1s ease-in;
+}
+</style>
+<script>
+function pizza() {
+    const element = document.getElementById("pleasedonteatme" );
+    pizzaRIP = element.getAttribute('data-rip');
+    element.style.cursor = "auto";
+    element.src = pizzaRIP+".png";
+    document.querySelector("link[rel*='icon']").href = pizzaRIP+".ico";
+    document.getElementById("greeting").innerHTML = "Tasty. ";
+}
+</script>
+<div id=header>
+  <div>
+    <a href="/tetris/local/">
+      / TETRIS / LOCAL /
+    </a>
+  </div>
+
+  <div>
+      <a href="/tetris/multiplayer/">
+        / TETRIS / MULTIPLAYER /
+      </a>
+    </div>
+</div>
+
+<div id="box">
+  <div id="greeting" class="title">
+    Hello, 
+  </div>
+  <img onclick='pizza()' id='pleasedonteatme' src='/public/pizza.png' data-rip='/public/eaten-pizza'> 
+</div>
+ 

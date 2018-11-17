@@ -1,0 +1,43 @@
+class TetrisManager
+{
+    constructor(document) 
+    {
+        this.document = document;
+        this.template = document.getElementById('player-template');
+
+        this.instances = new Set;
+    }
+
+    createPlayer()
+    {
+        const element = this.document.importNode(this.template.content, true).children[0];
+        const tetris = new Tetris(element);
+        this.instances.add(tetris);
+        this.document.body.appendChild(tetris.element);
+
+        return tetris;
+    }
+
+    removePlayer(tetris)
+    {
+        this.instances.delete(tetris);
+        this.document.body.removeChild(tetris.element);
+
+    }
+
+    sortPlayers(tetri)
+    {
+        tetri.forEach(tetris => {
+            if  (tetris.element.className.indexOf('local') === -1) {
+                this.document.body.appendChild(tetris.element);
+            }
+        });
+        [...document.body.getElementsByClassName('player')].forEach(element => {
+            if (element.className.indexOf('local') === -1) {
+                if (element.getElementsByClassName('buttons').length) {
+                    element.getElementsByClassName('buttons')[0].remove();
+                }
+            }
+        });
+    }
+}

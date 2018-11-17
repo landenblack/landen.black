@@ -1,0 +1,58 @@
+<head>
+    <link rel="shortcut icon" type="image/x-icon" href="/public/moon.ico" />
+    <title>tetris</title>
+    <style>
+        body {
+            background: #202028;
+            color: #ffffff;
+            font-family: sans-serif;
+            font-size: 2em;
+            text-align: center;
+            padding-top: 10vh;
+            display: flex;
+        }
+
+        .player {
+            flex: 1 1 auto;
+        }
+
+        .player.local canvas {
+            border-color: #ffffff
+        }
+        
+        canvas {
+            border: solid .2em #707070;
+            height: 60vh;
+        }
+
+        .buttons {
+            font-size: .8em;
+        }
+    </style>
+</head>
+
+<body>
+    <template id=player-template>
+        <div class=player>
+            <div class=score>0</div>
+            <canvas class="tetris" width="240" height="400"></canvas>
+            <div class=buttons>q w ↑ ← ↓ → [space]</div>
+        </div>
+    </template>
+    <!-- 
+    <div class=player>
+            <div class=score>0</div>
+            <canvas class="tetris" width="240" height="400"></canvas>
+            <div class=buttons>, . ↑ ← ↓ → [enter]</div>
+    </div>
+    -->
+
+
+    <script src="/tetris/multiplayer/client/tetrisManager.js"></script>    
+    <script src="/tetris/multiplayer/client/connectionManager.js"></script>    
+    <script src="/tetris/multiplayer/client/arena.js"></script>
+    <script src="/tetris/multiplayer/client/events.js"></script>
+    <script src="/tetris/multiplayer/client/player.js"></script>
+    <script src="/tetris/multiplayer/client/tetris.js"></script>
+    <script src="/tetris/multiplayer/client/main.js"></script>
+</body>
