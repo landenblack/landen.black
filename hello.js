@@ -1,6 +1,5 @@
 var    express = require('express');
 var        app = express();
-//var        Git = require("nodegit");
 var       exec = require('child_process').exec;
 var bodyParser = require('body-parser');
 
@@ -17,12 +16,8 @@ app.post("/git/", function (req, res) {
   var branch = req.body.ref;
 
   if(branch.indexOf('master') > -1 && sender.login === 'landenblack'){
-    console.log('pull');
+    console.log('pulling');
     exec('git pull');
-    /*
-    Git.Clone("https://github.com/landenblack/landen.black", "./tmp")
-    .catch(function(err) { console.log(err); });
-    */
   }
 });
 
@@ -49,11 +44,5 @@ app.get('/tetris/multiplayer/', function (req, res) {
 app.get('*', function (req, res) {
   res.sendFile(__dirname+'/index.html');
 });
-
-/*
-app.get('/public/:file', function( req, res ) {
-  res.sendFile(__dirname+'/public/'+req.params.file);
-});
-*/
 
 app.listen(8080);
