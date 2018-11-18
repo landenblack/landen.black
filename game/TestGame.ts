@@ -18,7 +18,7 @@ class TestGame extends GameBase
         this.Context.blendFunc(this.Context.SRC_ALPHA, this.Context.ONE_MINUS_SRC_ALPHA);
 
         this.Batch = new SpriteBatch(this.Context, this.Canvas, this.PATH);
-        this.Cocoa = new Texture2D(this.Context, "./assets/test.png");
+        this.Cocoa = new Texture2D(this.Context, "../assets/test.png");
     }
 
     public Tick(DeltaTime : number) : void
