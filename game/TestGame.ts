@@ -9,6 +9,7 @@ class TestGame extends GameBase
     private Cocoa : Texture2D;
     private Chino : Texture2D;
     private Rize : Texture2D;
+    private PATH = '../MOEnjs';
 
     public Initialize() : void
     {
@@ -16,7 +17,7 @@ class TestGame extends GameBase
         this.Context.enable(this.Context.BLEND);
         this.Context.blendFunc(this.Context.SRC_ALPHA, this.Context.ONE_MINUS_SRC_ALPHA);
 
-        this.Batch = new SpriteBatch(this.Context, this.Canvas);
+        this.Batch = new SpriteBatch(this.Context, this.Canvas, this.PATH);
         this.Cocoa = new Texture2D(this.Context, "./assets/test.png");
     }
 
