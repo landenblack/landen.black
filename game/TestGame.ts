@@ -54,7 +54,7 @@ class TestGame extends GameBase
             this.Context.texParameteri(this.Context.TEXTURE_2D, this.Context.TEXTURE_WRAP_T, this.Context.CLAMP_TO_EDGE);
             this.Context.texParameteri(this.Context.TEXTURE_2D, this.Context.TEXTURE_MIN_FILTER, this.Context.LINEAR);
         };
-        image.src = "../assets/pixelcharacterscollection/vol1/MAGE-artassets/mageIDLEright/mageIDLEright (1).png";
+        image.src = "../assets/test.png";
     }
 
     public Tick(DeltaTime : number) : void
