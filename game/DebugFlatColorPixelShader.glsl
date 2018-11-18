@@ -3,9 +3,12 @@
 in mediump vec3 Normal;
 in mediump vec2 UV;
 
+uniform sampler2D TEXTURE;
+
 out mediump vec4 Color;
 
 void main()
 {
-    Color = vec4(0.0, 1.0, 0.0, 1.0);
+    Color = texture(TEXTURE, UV);
+    
 }

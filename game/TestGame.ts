@@ -7,6 +7,7 @@ class TestGame extends GameBase
     private IndexBuffer : WebGLBuffer;
     private PlaneArrayObject : WebGLVertexArrayObject;
     private TestProgram : ShaderProgram;
+    private ween : WebGLTexture;
 
     public Initialize() : void
     {
@@ -43,16 +44,31 @@ class TestGame extends GameBase
         this.Context.bindVertexArray(null);
 
         this.TestProgram = new ShaderProgram(this.Context, 'StaticMeshVertexShader.glsl', 'DebugFlatColorPixelShader.glsl');
+
+        const image = new Image();
+        image.onload = () => {
+            this.ween = this.Context.createTexture();
+            this.Context.bindTexture(this.Context.TEXTURE_2D, this.ween);
+            this.Context.texImage2D(this.Context.TEXTURE_2D, 0, this.Context.RGBA, this.Context.RGBA, this.Context.UNSIGNED_BYTE, image);
+            this.Context.texParameteri(this.Context.TEXTURE_2D, this.Context.TEXTURE_WRAP_S, this.Context.CLAMP_TO_EDGE);
+            this.Context.texParameteri(this.Context.TEXTURE_2D, this.Context.TEXTURE_WRAP_T, this.Context.CLAMP_TO_EDGE);
+            this.Context.texParameteri(this.Context.TEXTURE_2D, this.Context.TEXTURE_MIN_FILTER, this.Context.LINEAR);
+        };
+        image.src = "../assets/pixelcharacterscollection/vol1/MAGE-artassets/mageIDLEright/mageIDLEright (1).png";
     }
 
     public Tick(DeltaTime : number) : void
     {
         if (!this.TestProgram.IsLoaded()) return;
+        if (this.ween == undefined) return;
 
         this.Context.clearColor(Math.random(), 0.0, 0.0, 1.0);
         this.Context.clear(this.Context.COLOR_BUFFER_BIT | this.Context.DEPTH_BUFFER_BIT);
 
         this.Context.useProgram(this.TestProgram.GetProgram());
+        this.Context.activeTexture(this.Context.TEXTURE0);
+        this.Context.bindTexture(this.Context.TEXTURE_2D, this.ween);
+        this.Context.uniform1i(this.Context.getUniformLocation(this.TestProgram.GetProgram(), 'TEXTURE'), 0);
         this.Context.bindVertexArray(this.PlaneArrayObject);
         this.Context.drawElements(this.Context.TRIANGLES, 6, this.Context.UNSIGNED_SHORT, 0); 
         this.Context.bindVertexArray(null);
