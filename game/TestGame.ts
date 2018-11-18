@@ -62,7 +62,6 @@ class TestGame extends GameBase
         if (!this.TestProgram.IsLoaded()) return;
         if (this.ween == undefined) return;
 
-        this.Context.clearColor(Math.random(), 0.0, 0.0, 1.0);
         this.Context.clear(this.Context.COLOR_BUFFER_BIT | this.Context.DEPTH_BUFFER_BIT);
 
         this.Context.useProgram(this.TestProgram.GetProgram());
