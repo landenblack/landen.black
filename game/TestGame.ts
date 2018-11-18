@@ -1,5 +1,5 @@
-import GameBase = require("./GameBase");
-import ShaderProgram = require('./ShaderProgram');
+import GameBase = require("../MOEnjs/GameBase");
+import ShaderProgram = require('../MOEnjs/ShaderProgram');
 
 class TestGame extends GameBase
 {   

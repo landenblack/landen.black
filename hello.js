@@ -5,8 +5,9 @@ var bodyParser = require('body-parser');
 
 
 app.use("/game", express.static('game'));
+app.use("/MOEnjs", express.static('MOEnjs'));
 app.use("/tetris", express.static('tetris'));
-app.use("/tetris/local", express.static('tetris'));
+app.use("/tetris/local", express.static('tetris/local'));
 app.use("/public", express.static('public'));
 app.use(bodyParser.json());
 
