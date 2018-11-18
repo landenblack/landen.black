@@ -45,6 +45,9 @@ class TestGame extends GameBase
 
         this.TestProgram = new ShaderProgram(this.Context, 'StaticMeshVertexShader.glsl', 'DebugFlatColorPixelShader.glsl');
 
+        this.Context.enable(this.Context.BLEND);
+        this.Context.blendFunc(this.Context.SRC_ALPHA, this.Context.ONE_MINUS_SRC_ALPHA);
+
         const image = new Image();
         image.onload = () => {
             this.ween = this.Context.createTexture();
