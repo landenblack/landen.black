@@ -18,6 +18,7 @@ app.post("/git/", function (req, res) {
   if(branch.indexOf('master') > -1 && sender.login === 'landenblack'){
     console.log('pulling');
     exec('git pull');
+    exec('pm2 restart all');
   }
 });
 
