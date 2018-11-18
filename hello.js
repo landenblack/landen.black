@@ -22,6 +22,8 @@ app.post("/git/", function (req, res) {
     exec('git pull');
     console.log('restarting pm2 processes');
     exec('pm2 restart all');
+    console.log('compiling tsc');
+    exec('tsc');
   }
 });
 
