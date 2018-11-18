@@ -1,4 +1,5 @@
 ﻿import TestGame = require("./TestGame");
+import CanvasContext = require("../MOEnjs/CanvasContext");
 
 let LastTime : number;
 
@@ -10,8 +11,9 @@ function Main()
     document.body.appendChild(Canvas);
 
     const Context = Canvas.getContext("webgl2");
+    const CanvasInfo = new CanvasContext(Canvas);
     
-    const Game = new TestGame(Context);
+    const Game = new TestGame(Context, CanvasInfo);
     Game.Initialize();
     const LoopBody = (TimeStamp : DOMHighResTimeStamp) =>
     {
