@@ -26,7 +26,7 @@ app.get('/', function (req, res) {
   res.sendFile(__dirname+'/index.html');
 });
 
-app.get('/gameZ/', function (req, res) {
+app.get('/game/', function (req, res) {
   res.sendFile(__dirname+'/game/game.html');
 });
 
