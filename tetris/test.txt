@@ -1,1 +1,3 @@
-zsszsztss
+zsszszt api
+$: command not found
+ss
