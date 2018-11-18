@@ -4,7 +4,7 @@ var       exec = require('child_process').exec;
 var bodyParser = require('body-parser');
 
 
-app.use("/assets", express.static('assets'));
+app.use("/assets");
 app.use("/game", express.static('game'));
 app.use("/MOEnjs", express.static('MOEnjs'));
 app.use("/tetris", express.static('tetris'));
