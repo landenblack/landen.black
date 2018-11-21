@@ -51,7 +51,7 @@ class Unit
 
     public DrawData1() : Rectangle
     {
-        return new Rectangle(this.x, this.y, 64, 48);
+        return new Rectangle(this.x, this.y, 32, 24);
     }
 
     public DrawData2() : Rectangle
