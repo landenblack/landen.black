@@ -24,8 +24,8 @@ class TestGame extends GameBase
         if (!this.Batch.IsLoaded() || !this.Cocoa.IsLoaded() ) return;
 
         this.Context.clear(this.Context.COLOR_BUFFER_BIT);
-        this.Batch.QueueDraw(this.Cocoa, new Rectangle(100, 100, 100, 100)); // x y w h 
-        //this.Batch.QueueDraw(this.Cocoa, new Rectangle(0, 0, 100, 33), new Rectangle(0, 0, 192, 96)); // x y w h 
+        //this.Batch.QueueDraw(this.Cocoa, new Rectangle(100, 100, 300, 99)); // x y w h 
+        this.Batch.QueueDraw(this.Cocoa, new Rectangle(100, 100, 300, 99), new Rectangle(0, 0, 40, 33)); // x y w h 
         this.Batch.ExecuteDraws();
     }
 }
