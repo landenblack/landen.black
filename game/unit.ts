@@ -29,7 +29,7 @@ class Unit
         this.size.y = 0;
     }
 
-    public SetFile(texture : Texture2D, filewidth, fileheight, fileframes) : void
+    public SetFile(texture : Texture2D, filewidth, fileheight, fileframes, scale) : void
     {
         this.image = {
             file: texture,
@@ -38,7 +38,14 @@ class Unit
             frames: fileframes,
             framex: filewidth / fileframes,
             framey: fileheight,
+            scale: scale,
         };
+    }
+
+    public UpdatePos(x : number, y : number) : void 
+    {
+        this.x = x;
+        this.y = y;
     }
 
     public UpdateFrame() : void
@@ -51,7 +58,7 @@ class Unit
 
     public DrawData1() : Rectangle
     {
-        return new Rectangle(this.x, this.y, 160, 120);
+        return new Rectangle(this.x, this.y, this.image.framex*this.image.scale, this.image.framey*this.image.scale);
     }
 
     public DrawData2() : Rectangle
