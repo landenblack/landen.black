@@ -7,6 +7,7 @@ class Unit
     public x : number;
     public y : number;
     public size;
+    public size;
     public currentframe : number;
 
     public Initialize() : void
@@ -24,6 +25,7 @@ class Unit
 
         this.x = 100;
         this.y = 100;
+        this.size = {};
         this.size.x = 0;
         this.size.y = 0;
     }
