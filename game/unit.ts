@@ -7,7 +7,6 @@ class Unit
     public x : number;
     public y : number;
     public size;
-    public size;
     public currentframe : number;
 
     public Initialize() : void
