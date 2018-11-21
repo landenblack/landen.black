@@ -24,7 +24,8 @@ class Unit
 
         this.x = 100;
         this.y = 100;
-        this.size = { x: 0, y: 0 };
+        this.size.x = 0;
+        this.size.y = 0;
     }
 
     public SetFile(texture : Texture2D, filewidth, fileheight, fileframes) : void
