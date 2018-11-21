@@ -14,7 +14,7 @@ class TestGame extends GameBase
 
     public Initialize() : void
     {
-        this.Context.clearColor(30.0, 18.0, 61.0, 1.0);
+        this.Context.clearColor(30.0, 0.18, 0.61, 1.0);
         this.Context.enable(this.Context.BLEND);
         this.Context.blendFunc(this.Context.SRC_ALPHA, this.Context.ONE_MINUS_SRC_ALPHA);
 
@@ -35,7 +35,7 @@ class TestGame extends GameBase
         this.time += DeltaTime;
         let data1 = this.skeleton.DrawData1();
         let data2 = this.skeleton.DrawData2();
-        if (this.time > 0.04166) {
+        if (this.time > 0.1) {
             console.log(data1);
             console.log(data2);
             this.time = 0;
