@@ -56,13 +56,17 @@ class Unit
         }
     }
 
-    public DrawData1() : Rectangle
+    public DrawWhere() : Rectangle
     {
+        // where to draw
+        //new Rectangle(100, 100, 300, 99) posX, posY, width, height,
         return new Rectangle(this.x, this.y, this.image.framex*this.image.scale, this.image.framey*this.image.scale);
     }
 
-    public DrawData2() : Rectangle
+    public DrawWhat() : Rectangle
     {
+        // what to draw
+        //new Rectangle(100, 100, 300, 99) start here on image X, start here on image Y, width, height
         return new Rectangle(this.image.framex*this.currentframe, 0, this.image.framex, this.image.framey);
     }
     

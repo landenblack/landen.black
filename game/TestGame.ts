@@ -38,10 +38,6 @@ class TestGame extends GameBase
         this.skeleton.UpdatePos(100,228);
         this.skeleton2.UpdatePos(150,100);
         this.time += DeltaTime;
-        let data1 = this.skeleton.DrawData1();
-        let data2 = this.skeleton.DrawData2();
-        let data21 = this.skeleton2.DrawData1();
-        let data22 = this.skeleton2.DrawData2();
         if (this.time > 0.1) {
             this.time = 0;
             this.skeleton.UpdateFrame();
@@ -49,8 +45,8 @@ class TestGame extends GameBase
         }
         this.Context.clear(this.Context.COLOR_BUFFER_BIT);
         
-        this.Batch.QueueDraw(this.SkeletonTexture, data1, data2);
-        this.Batch.QueueDraw(this.SkeletonTexture, data21, data22);
+        this.Batch.QueueDraw(this.SkeletonTexture, this.skeleton.DrawWhere(),  this.skeleton.DrawWhat());
+        this.Batch.QueueDraw(this.SkeletonTexture, this.skeleton2.DrawWhere(), this.skeleton2.DrawWhat());
         //this.Batch.QueueDraw(this.Cocoa, new Rectangle(100, 100, 300, 99)); // x y w h 
         //this.Batch.QueueDraw(this.SkeletonTexture, new Rectangle(100, 100, 66, 99), new Rectangle(0, 0, 22, 33)); // x y w h 
         this.Batch.ExecuteDraws();
