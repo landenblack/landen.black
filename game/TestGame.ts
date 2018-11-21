@@ -25,7 +25,7 @@ class TestGame extends GameBase
 
         this.Context.clear(this.Context.COLOR_BUFFER_BIT);
         //this.Batch.QueueDraw(this.Cocoa, new Rectangle(100, 100, 300, 99)); // x y w h 
-        this.Batch.QueueDraw(this.Cocoa, new Rectangle(100, 100, 66, 99), new Rectangle(0, 0, 22, 33)); // x y w h 
+        this.Batch.QueueDraw(this.Cocoa, new Rectangle(100, 100, 44, 66), new Rectangle(0, 0, 22, 33)); // x y w h 
         this.Batch.ExecuteDraws();
     }
 }
