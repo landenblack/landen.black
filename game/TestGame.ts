@@ -33,13 +33,18 @@ class TestGame extends GameBase
         if (!this.Batch.IsLoaded() || !this.SkeletonTexture.IsLoaded() ) return;
 
         this.time += DeltaTime;
+        let data1 = this.skeleton.DrawData1();
+        let data2 = this.skeleton.DrawData2();
         if (this.time > 1 ) {
             console.log('yay!');
+            console.log(data1);
+            console.log(data2);
             this.time = 0;
             this.skeleton.UpdateFrame();
         }
         this.Context.clear(this.Context.COLOR_BUFFER_BIT);
-        this.Batch.QueueDraw(this.SkeletonTexture, this.skeleton.DrawData1(), this.skeleton.DrawData2());
+        
+        this.Batch.QueueDraw(this.SkeletonTexture, data1, data2);
         //this.Batch.QueueDraw(this.Cocoa, new Rectangle(100, 100, 300, 99)); // x y w h 
         //this.Batch.QueueDraw(this.SkeletonTexture, new Rectangle(100, 100, 66, 99), new Rectangle(0, 0, 22, 33)); // x y w h 
         this.Batch.ExecuteDraws();
