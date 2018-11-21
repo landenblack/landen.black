@@ -56,7 +56,7 @@ class Unit
 
     public DrawData2() : Rectangle
     {
-        return new Rectangle(this.image.fx*this.currentframe, this.image.fy, this.image.x, this.image.y);
+        return new Rectangle(this.image.fx*this.currentframe, 0, this.image.x, this.image.y);
     }
     
 }
