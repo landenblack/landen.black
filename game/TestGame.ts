@@ -24,7 +24,7 @@ class TestGame extends GameBase
         this.SkeletonTexture = new Texture2D(this.Context, "../assets/spritesheets/skeleton/skeletonidle.png");
         this.skeleton = new Unit();
         this.skeleton.Initialize();
-        this.skeleton.SetFile(this.SkeletonTexture, 286, 33, 13);
+        this.skeleton.SetFile(this.SkeletonTexture, 264, 32, 11);
     }
 
     public Tick(DeltaTime : number) : void
