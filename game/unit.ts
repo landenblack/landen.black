@@ -4,7 +4,8 @@ import Rectangle = require("../MOEnjs/Rectangle");
 class Unit
 {
     public image;
-    public pos;
+    public x : number;
+    public y : number;
     public size;
     public currentframe : number;
 
@@ -21,7 +22,8 @@ class Unit
 
         this.currentframe = 0;
 
-        this.pos = { x: 0, y: 0 };
+        this.x = 100;
+        this.y = 100;
         this.size = { x: 0, y: 0 };
     }
 
