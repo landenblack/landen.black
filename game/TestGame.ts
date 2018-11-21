@@ -35,8 +35,7 @@ class TestGame extends GameBase
         this.time += DeltaTime;
         let data1 = this.skeleton.DrawData1();
         let data2 = this.skeleton.DrawData2();
-        if (this.time > 1 ) {
-            console.log('yay!');
+        if (this.time > .2) {
             console.log(data1);
             console.log(data2);
             this.time = 0;
