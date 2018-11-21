@@ -2,7 +2,7 @@ import GameBase = require("../MOEnjs/GameBase");
 import SpriteBatch = require("../MOEnjs/SpriteBatch/SpriteBatch");
 import Texture2D = require("../MOEnjs/Texture2D");
 import Rectangle = require("../MOEnjs/Rectangle");
-import Unit = require("../game/Unit");
+import Unit = require("../game/unit");
 
 class TestGame extends GameBase
 {
@@ -36,9 +36,7 @@ class TestGame extends GameBase
             this.time = 0;
             this.skeleton.UpdateFrame();
         }
-        this.Batch.QueueDraw(this.SkeletonTexture, 
-            new Rectangle(this.skeleton.pos.x, this.skeleton.pos.y, 66, 99),
-            new Rectangle(this.skeleton.pos.fx*this.skeleton.currentframe, this.skeleton.pos.fy, 66, 99));
+        this.Batch.QueueDraw(this.SkeletonTexture, this.skeleton.DrawData1(), this.skeleton.DrawData2());
         
 
         console.log(DeltaTime);
