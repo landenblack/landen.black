@@ -33,11 +33,11 @@ class Unit
     {
         this.image = {
             file: texture,
-            x: filewidth,
-            y: fileheight,
+            filex: filewidth,
+            filey: fileheight,
             frames: fileframes,
-            fx: filewidth / fileframes,
-            fy: fileheight,
+            framex: filewidth / fileframes,
+            framey: fileheight,
         };
     }
 
@@ -56,7 +56,7 @@ class Unit
 
     public DrawData2() : Rectangle
     {
-        return new Rectangle(this.image.fx*this.currentframe, 0, this.image.fx, this.image.fy);
+        return new Rectangle(this.image.framex*this.currentframe, 0, this.image.framex, this.image.framey);
     }
     
 }
