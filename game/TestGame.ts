@@ -35,7 +35,7 @@ class TestGame extends GameBase
     {
     
         if (!this.Batch.IsLoaded() || !this.SkeletonTexture.IsLoaded() ) return;
-        this.skeleton.UpdatePos(100,160);
+        this.skeleton.UpdatePos(100,260);
         this.skeleton2.UpdatePos(150,100);
         this.time += DeltaTime;
         let data1 = this.skeleton.DrawData1();
