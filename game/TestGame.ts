@@ -11,7 +11,7 @@ class TestGame extends GameBase
 
     public Initialize() : void
     {
-        this.Context.clearColor(0.30, 0.18, 0.61, 1.0);
+        this.Context.clearColor(30.0, 0.18, 0.61, 1.0);
         this.Context.enable(this.Context.BLEND);
         this.Context.blendFunc(this.Context.SRC_ALPHA, this.Context.ONE_MINUS_SRC_ALPHA);
 
