@@ -23,6 +23,7 @@ class TestGame extends GameBase
         this.Batch = new SpriteBatch(this.Context, this.Canvas, this.PATH);
         this.SkeletonTexture = new Texture2D(this.Context, "../assets/spritesheets/skeleton/skeletonidle.png");
         this.skeleton = new Unit();
+        this.skeleton.Initialize();
         this.skeleton.SetFile(this.SkeletonTexture, 286, 33, 13);
     }
 
