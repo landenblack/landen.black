@@ -53,16 +53,16 @@ class Skeleton extends Unit
         let yv = 0;
 
         if (this.downkeys.has('ArrowUp')) {
-            yv += 1;
-        }
-        if (this.downkeys.has('ArrowDown')) {
             yv -= 1;
         }
+        if (this.downkeys.has('ArrowDown')) {
+            yv += 1;
+        }
         if (this.downkeys.has('ArrowRight')) {
-            xv -= 1;
+            xv += 1;
         }
         if (this.downkeys.has('ArrowLeft')) {
-            xv += 1;
+            xv -= 1;
         }
 
         this.SetVelocity(xv*this.speed, yv*this.speed);
