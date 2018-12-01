@@ -25,8 +25,8 @@ class Skeleton extends Unit
         super(downkeys);
 
         this.left  = false;
-        this.speed = 50;
-        this.scale = 6;
+        this.speed = 100;
+        this.scale = 2;
     }
 
     public SetAnimation(NewState : State) : void
