@@ -36,6 +36,7 @@ class TestGame extends GameBase
 
         this.Context.clear(this.Context.COLOR_BUFFER_BIT);
         this.skeleton.Update(DeltaTime);
+        this.skeleton.Draw(this.Batch);
         this.Batch.ExecuteDraws();
     }
 }
