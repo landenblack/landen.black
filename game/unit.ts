@@ -1,74 +1,80 @@
-import Texture2D = require("../MOEnjs/Texture2D");
-import Rectangle = require("../MOEnjs/Rectangle");
+import Texture2D   = require("../MOEnjs/Texture2D");
+import Rectangle   = require("../MOEnjs/Rectangle");
+import SpriteBatch = require("../MOEnjs/SpriteBatch/SpriteBatch");
 
 class Unit
 {
-    public image;
-    public x : number;
-    public y : number;
-    public size;
-    public currentframe : number;
+    private x : number;
+    private xv : number;
+    private y : number;
+    private yv : number;
+    private width  : number;
+    private height : number;
+    private scale  : number;
+    public Batch : SpriteBatch;
+    private Time : number;
+    private Frame : number;
+
+
+    private idle : Texture2D;
+    private FrAmEz : number;
+    private currentframe : number;
+    private frameWidth : number;
+    private frameHeight : number;
+
+
 
     public Initialize() : void
     {
-        this.image = {
-            file: '',
-            x: 0,
-            y: 0,
-            frames: 0,
-            fx: 0,
-            fy: 0,
-        };
-
-        this.currentframe = 0;
-
         this.x = 100;
         this.y = 100;
-        this.size = {};
-        this.size.x = 0;
-        this.size.y = 0;
+        this.xv = 0;
+        this.yv = 0;
+
+        this.scale = 1;
+        this.Frame = .5;
+        this.FrAmEz = 11;//? can i count
+        this.currentframe = 0;
+        this.frameWidth = 24;
+        this.frameHeight = 32;
+
     }
 
-    public SetFile(texture : Texture2D, filewidth, fileheight, fileframes, scale) : void
+    public setContent(context, filename : string) : void
     {
-        this.image = {
-            file: texture,
-            filex: filewidth,
-            filey: fileheight,
-            frames: fileframes,
-            framex: filewidth / fileframes,
-            framey: fileheight,
-            scale: scale,
-        };
+        this.idle = new Texture2D(context, filename);
     }
 
-    public UpdatePos(x : number, y : number) : void 
-    {
-        this.x = x;
-        this.y = y;
-    }
 
-    public UpdateFrame() : void
+    public NextFrame() : void
     {
         this.currentframe += 1;
-        if (this.currentframe >= this.image.frames) {
+        if (this.currentframe >= this.FrAmEz) {
             this.currentframe = 0;
         }
     }
 
-    public DrawWhere() : Rectangle
+    public Update(TimePassed : number) : void
     {
-        // where to draw
-        //new Rectangle(100, 100, 300, 99) posX, posY, width, height,
-        return new Rectangle(this.x, this.y, this.image.framex*this.image.scale, this.image.framey*this.image.scale);
+        this.x = this.xv * TimePassed;
+        this.y = this.yv * TimePassed;
+        this.Time += TimePassed;
+        if (this.Time > this.Frame) {
+            this.NextFrame();
+
+            this.Time -= this.Frame;
+        }
+
     }
 
-    public DrawWhat() : Rectangle
+    public Draw(Batch : SpriteBatch) : void
     {
-        // what to draw
-        //new Rectangle(100, 100, 300, 99) start here on image X, start here on image Y, width, height
-        return new Rectangle(this.image.framex*this.currentframe, 0, this.image.framex, this.image.framey);
+        const source = new Rectangle(this.currentframe*this.frameWidth, 0, this.frameWidth, this.frameHeight);
+        const destination = new Rectangle(this.x, this.y, this.frameWidth*this.scale, this.frameHeight*this.scale);
+
+        Batch.QueueDraw(this.idle, source, destination);
     }
+
     
 }
 
