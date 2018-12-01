@@ -28,8 +28,8 @@ class Unit
     {
         this.x = 100;
         this.y = 100;
-        this.xv = 0;
-        this.yv = 0;
+        this.xv = 1;
+        this.yv = 1;
 
         this.scale = 1;
         this.Frame = .5;
