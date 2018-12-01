@@ -59,7 +59,7 @@ class Animation
 
     private GetCurrentFrame() : number
     {
-        return Math.round(this.time * this.fps);
+        return Math.floor(this.time * this.fps);
     }
 
 }
