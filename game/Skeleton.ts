@@ -25,7 +25,7 @@ class Skeleton extends Unit
         super(downkeys);
 
         this.left  = false;
-        this.speed = 100;
+        this.speed = 200;
         this.scale = 2;
     }
 
