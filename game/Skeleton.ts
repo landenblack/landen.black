@@ -94,10 +94,10 @@ class Skeleton extends Unit
     public Draw(Batch : SpriteBatch) : void
     {
         const destination = new Rectangle(
-            this.x - this.Current.GetWidth()*this.scale/2, 
-            this.y - this.Current.GetHeight()*this.scale, 
-            (this.left ? -1 : 1) * this.Current.GetWidth()*this.scale, 
-            this.Current.GetHeight()*this.scale
+            this.x - (this.left ? -1 : 1) * this.Current.GetWidth() * this.scale / 2, 
+            this.y - (this.left ? -1 : 1) * this.Current.GetHeight() * this.scale, 
+            (this.left ? -1 : 1) * this.Current.GetWidth() * this.scale, 
+            this.Current.GetHeight() * this.scale
         );
         Batch.QueueDraw(this.Current.GetTexture(), destination, this.Current.GetRectangle());
     }
