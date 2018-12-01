@@ -12,6 +12,7 @@ class TestGame extends GameBase
     private time : number;
     private skeleton : Skeleton;
     private changed : boolean;
+    private downkeys : Set<string>;
 
     public Initialize() : void
     {
@@ -20,23 +21,21 @@ class TestGame extends GameBase
         this.Context.blendFunc(this.Context.SRC_ALPHA, this.Context.ONE_MINUS_SRC_ALPHA);
 
         this.time = 0;
-
+        this.downkeys = new Set<string>();
         this.Batch = new SpriteBatch(this.Context, this.Canvas, this.PATH);
-        this.skeleton = new Skeleton();
+        this.skeleton = new Skeleton(this.downkeys);
         this.skeleton.SetContent(this.Context);
-        this.skeleton.Initialize();
-        
         this.changed = false;
     }
 
     public KeyUp(key : KeyboardEvent) : void 
     {
-        console.log(key);
+        this.downkeys.delete(key.key);
     }
 
     public KeyDown(key : KeyboardEvent) : void 
     {
-        console.log(key);
+        this.downkeys.add(key.key);
     }
 
     public Tick(DeltaTime : number) : void

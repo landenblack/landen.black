@@ -7,14 +7,16 @@ class Unit
     protected y : number;
     protected yv : number;
     protected scale  : number;
+    protected downkeys : Set<string>;
 
-    public Initialize() : void
+    public constructor(downkeys : Set<string>) 
     {
         this.x = 100;
         this.y = 100;
         this.xv = 1;
         this.yv = 1;
 
+        this.downkeys = downkeys;
         this.scale = 1;
 
     }

@@ -15,11 +15,13 @@ class Skeleton extends Unit
     private Idle    : Animation;
     private Walk    : Animation;
     private Current : Animation;
+    private speed   : number;
 
-    public Initialize() : void
+    public constructor(downkeys : Set<string>)
     {
-        super.Initialize();
+        super(downkeys);
 
+        this.speed = 30;
         this.scale = 6;
     }
 
@@ -47,6 +49,25 @@ class Skeleton extends Unit
 
     public Update(TimePassed : number) : void
     {
+        let xv = 0;
+        let yv = 0;
+
+        if (this.downkeys.has('ArrowUp')) {
+            yv += 1;
+        }
+        if (this.downkeys.has('ArrowDown')) {
+            yv -= 1;
+        }
+        if (this.downkeys.has('ArrowRight')) {
+            xv -= 1;
+        }
+        if (this.downkeys.has('ArrowLeft')) {
+            xv += 1;
+        }
+
+        this.SetVelocity(xv*this.speed, yv*this.speed);
+        
+
         super.Update(TimePassed);
         this.Current.Update(TimePassed);
     }
