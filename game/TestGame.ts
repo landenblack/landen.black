@@ -2,7 +2,7 @@ import GameBase = require("../MOEnjs/GameBase");
 import SpriteBatch = require("../MOEnjs/SpriteBatch/SpriteBatch");
 import Texture2D = require("../MOEnjs/Texture2D");
 import Rectangle = require("../MOEnjs/Rectangle");
-import Unit = require("../game/unit");
+import Skeleton = require("../game/Skeleton");
 
 class TestGame extends GameBase
 {
@@ -10,9 +10,7 @@ class TestGame extends GameBase
     private SkeletonTexture : Texture2D;
     private PATH = '../MOEnjs';
     private time : number;
-    private skeleton : Unit;
-    private skeleton2 : Unit;
-    private skeleton3 : Unit;
+    private skeleton : Skeleton;
 
     public Initialize() : void
     {
@@ -23,8 +21,8 @@ class TestGame extends GameBase
         this.time = 0;
 
         this.Batch = new SpriteBatch(this.Context, this.Canvas, this.PATH);
-        this.skeleton = new Unit();
-        this.skeleton.setContent(this.Context, "../assets/spritesheets/skeleton/skeletonidle.png");
+        this.skeleton = new Skeleton();
+        this.skeleton.setContent(this.Context);
         this.skeleton.Initialize();
     }
 
