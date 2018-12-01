@@ -95,7 +95,7 @@ class Skeleton extends Unit
     {
         const destination = new Rectangle(
             this.x - (this.left ? -1 : 1) * this.Current.GetWidth() * this.scale / 2, 
-            this.y - (this.left ? -1 : 1) * this.Current.GetHeight() * this.scale, 
+            this.y - this.Current.GetHeight() * this.scale, 
             (this.left ? -1 : 1) * this.Current.GetWidth() * this.scale, 
             this.Current.GetHeight() * this.scale
         );
