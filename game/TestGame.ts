@@ -7,11 +7,9 @@ import Skeleton = require("../game/Skeleton");
 class TestGame extends GameBase
 {
     private Batch : SpriteBatch;
-    private SkeletonTexture : Texture2D;
     private PATH = '../MOEnjs';
     private time : number;
     private skeleton : Skeleton;
-    private changed : boolean;
     private downkeys : Set<string>;
 
     public Initialize() : void
@@ -25,7 +23,6 @@ class TestGame extends GameBase
         this.Batch = new SpriteBatch(this.Context, this.Canvas, this.PATH);
         this.skeleton = new Skeleton(this.downkeys);
         this.skeleton.SetContent(this.Context);
-        this.changed = false;
     }
 
     public KeyUp(key : KeyboardEvent) : void 
@@ -43,11 +40,7 @@ class TestGame extends GameBase
         this.time += DeltaTime;
         if (!this.Batch.IsLoaded() || this.time < 1 ) return;
 
-        if (this.time > 10 && !this.changed) {
-            this.skeleton.SetAnimation(Skeleton.State.Walk);
-            this.skeleton.SetVelocity(30, 1);
-            this.changed = true;
-        }
+        
 
         this.Context.clear(this.Context.COLOR_BUFFER_BIT);
         this.skeleton.Update(DeltaTime);

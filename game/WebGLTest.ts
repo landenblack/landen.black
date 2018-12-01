@@ -16,9 +16,9 @@ function Main()
     const Game = new TestGame(Context, CanvasInfo);
     Game.Initialize();
 
-    document.addEventListener('keyup', Game.KeyUp);
-    document.addEventListener('keydown', Game.KeyDown);
-    
+    document.addEventListener('keyup',   (Key)=>Game.KeyUp(Key));
+    document.addEventListener('keydown', (Key)=>Game.KeyDown(Key));
+
     const LoopBody = (TimeStamp : DOMHighResTimeStamp) =>
     {
         if (LastTime != undefined)
