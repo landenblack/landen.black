@@ -11,7 +11,7 @@ class Animation
     private frameCount  : number;
     private fps         : number;
 
-    public constructor(context : WebGL2RenderingContext, path : string, frameWidth : number, frameHeight, frameCount : number, fps : number) : void
+    public constructor(context : WebGL2RenderingContext, path : string, frameWidth : number, frameHeight, frameCount : number, fps : number)
     {
         this.texture = new Texture2D(context, path);
         this.time = 0;
