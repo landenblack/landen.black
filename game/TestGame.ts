@@ -31,6 +31,10 @@ class TestGame extends GameBase
         this.time += DeltaTime;
         if (!this.Batch.IsLoaded() || this.time < 2 ) return;
 
+        if (this.time > 10) {
+            this.skeleton.setAnimation(Skeleton.State.Walk);
+        }
+
         this.Context.clear(this.Context.COLOR_BUFFER_BIT);
         this.skeleton.Update(DeltaTime);
         this.skeleton.Draw(this.Batch);
