@@ -16,6 +16,13 @@ class Skeleton extends Unit
     private Walk    : Animation;
     private Current : Animation;
 
+    public Initialize() : void
+    {
+        super.Initialize();
+
+        this.scale = 6;
+    }
+
     public setContent(context) : void
     {
         this.Idle = new Animation(context, "../assets/spritesheets/skeleton/skeletonidle.png", 24, 32, 11, 10);
