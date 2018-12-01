@@ -25,6 +25,7 @@ class TestGame extends GameBase
         this.skeleton = new Skeleton();
         this.skeleton.setContent(this.Context);
         this.skeleton.Initialize();
+        
         this.changed = false;
     }
 
@@ -35,6 +36,7 @@ class TestGame extends GameBase
 
         if (this.time > 10 && !this.changed) {
             this.skeleton.setAnimation(Skeleton.State.Walk);
+            this.skeleton.SetVelocity(3, 1);
             this.changed = true;
         }
 

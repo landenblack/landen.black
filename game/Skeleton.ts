@@ -23,13 +23,6 @@ class Skeleton extends Unit
         this.scale = 6;
     }
 
-    public setContent(context) : void
-    {
-        this.Idle = new Animation(context, "../assets/spritesheets/skeleton/skeletonidle.png", 24, 32, 11, 10);
-        this.Walk = new Animation(context, "../assets/spritesheets/skeleton/skeletonwalk.png", 22, 33, 13, 10);
-        this.setAnimation(State.Idle);
-    }
-
     public setAnimation(NewState : State) : void
     {
         switch(NewState){
@@ -45,8 +38,16 @@ class Skeleton extends Unit
         this.Current.Reset();
     }
 
+    public setContent(context) : void
+    {
+        this.Idle = new Animation(context, "../assets/spritesheets/skeleton/skeletonidle.png", 24, 32, 11, 10);
+        this.Walk = new Animation(context, "../assets/spritesheets/skeleton/skeletonwalk.png", 22, 33, 13, 10);
+        this.setAnimation(State.Idle);
+    }
+
     public Update(TimePassed : number) : void
     {
+        super.Update(TimePassed);
         this.Current.Update(TimePassed);
     }
 

@@ -7,11 +7,6 @@ class Unit
     protected y : number;
     protected yv : number;
     protected scale  : number;
-    public Batch : SpriteBatch;
-
-
-
-
 
     public Initialize() : void
     {
@@ -24,14 +19,17 @@ class Unit
 
     }
 
-
     public Update(TimePassed : number) : void
     {
         this.x = this.xv * TimePassed;
         this.y = this.yv * TimePassed;
     }
 
-    
+    public SetVelocity(xv : number, yv : number) : void
+    {
+        this.xv = xv;
+        this.yv = yv;
+    }
 }
 
 export = Unit;
