@@ -48,7 +48,7 @@ class Skeleton extends Unit
         
         const destination = new Rectangle(this.x, this.y, this.Current.GetWidth()*this.scale, this.Current.GetHeight()*this.scale);
 
-        Batch.QueueDraw(this.Current.GetTexture(), this.Current.GetRectangle(), destination);
+        Batch.QueueDraw(this.Current.GetTexture(), destination, this.Current.GetRectangle());
     }
 
     
