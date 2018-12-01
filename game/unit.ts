@@ -60,7 +60,7 @@ class Unit
         this.y = this.yv * TimePassed;
         this.Time += TimePassed;
         if (this.Time > this.Frame) {
-            this.NextFrame();
+            //this.NextFrame();
 
             this.Time -= this.Frame;
         }
