@@ -11,6 +11,7 @@ class TestGame extends GameBase
     private PATH = '../MOEnjs';
     private time : number;
     private skeleton : Skeleton;
+    private changed : boolean;
 
     public Initialize() : void
     {
@@ -24,6 +25,7 @@ class TestGame extends GameBase
         this.skeleton = new Skeleton();
         this.skeleton.setContent(this.Context);
         this.skeleton.Initialize();
+        this.changed = false;
     }
 
     public Tick(DeltaTime : number) : void
@@ -31,8 +33,9 @@ class TestGame extends GameBase
         this.time += DeltaTime;
         if (!this.Batch.IsLoaded() || this.time < 2 ) return;
 
-        if (this.time > 10) {
+        if (this.time > 10 && !this.changed) {
             this.skeleton.setAnimation(Skeleton.State.Walk);
+            this.changed = true;
         }
 
         this.Context.clear(this.Context.COLOR_BUFFER_BIT);
