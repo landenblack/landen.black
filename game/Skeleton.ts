@@ -20,6 +20,7 @@ class Skeleton extends Unit
     {
         this.Idle = new Animation(context, "../assets/spritesheets/skeleton/skeletonidle.png", 24, 32, 11, 10);
         this.Walk = new Animation(context, "../assets/spritesheets/skeleton/skeletonwalk.png", 22, 33, 13, 10);
+        this.setAnimation(State.Idle);
     }
 
     public setAnimation(NewState : State) : void
