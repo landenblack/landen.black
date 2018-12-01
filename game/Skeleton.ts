@@ -18,11 +18,13 @@ class Skeleton extends Unit
     private Walk    : Animation;
     private Current : Animation;
     private speed   : number;
+    private left    : boolean;
 
     public constructor(downkeys : Set<string>)
     {
         super(downkeys);
 
+        this.left  = false;
         this.speed = 50;
         this.scale = 6;
     }
@@ -80,12 +82,18 @@ class Skeleton extends Unit
         }
 
         super.Update(TimePassed);
+        if (xv < 0) {
+            this.left = true;
+        } else if (xv > 0) {
+            this.left = false;
+        }
         this.Current.Update(TimePassed);
+
     }
 
     public Draw(Batch : SpriteBatch) : void
     {
-        const destination = new Rectangle(this.x, this.y, this.Current.GetWidth()*this.scale, this.Current.GetHeight()*this.scale);
+        const destination = new Rectangle(this.x, this.y, (this.left ? -1 : 1) * this.Current.GetWidth()*this.scale, this.Current.GetHeight()*this.scale);
         Batch.QueueDraw(this.Current.GetTexture(), destination, this.Current.GetRectangle());
     }
 
