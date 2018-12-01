@@ -23,7 +23,6 @@ class TestGame extends GameBase
         this.time = 0;
 
         this.Batch = new SpriteBatch(this.Context, this.Canvas, this.PATH);
-        this.SkeletonTexture = new Texture2D(this.Context, "../assets/spritesheets/skeleton/skeletonidle.png");
         this.skeleton = new Unit();
         this.skeleton.setContent(this.Context, "../assets/spritesheets/skeleton/skeletonidle.png");
         this.skeleton.Initialize();
@@ -32,7 +31,7 @@ class TestGame extends GameBase
     public Tick(DeltaTime : number) : void
     {
         this.time += DeltaTime;
-        if (!this.Batch.IsLoaded() || this.time < 5 ) return;
+        if (!this.Batch.IsLoaded() || this.time < 2 ) return;
 
         this.Context.clear(this.Context.COLOR_BUFFER_BIT);
         this.skeleton.Update(DeltaTime);
