@@ -23,10 +23,20 @@ class TestGame extends GameBase
 
         this.Batch = new SpriteBatch(this.Context, this.Canvas, this.PATH);
         this.skeleton = new Skeleton();
-        this.skeleton.setContent(this.Context);
+        this.skeleton.SetContent(this.Context);
         this.skeleton.Initialize();
         
         this.changed = false;
+    }
+
+    public KeyUp(key : KeyboardEvent) : void 
+    {
+        console.log(key);
+    }
+
+    public KeyDown(key : KeyboardEvent) : void 
+    {
+        console.log(key);
     }
 
     public Tick(DeltaTime : number) : void
@@ -35,7 +45,7 @@ class TestGame extends GameBase
         if (!this.Batch.IsLoaded() || this.time < 1 ) return;
 
         if (this.time > 10 && !this.changed) {
-            this.skeleton.setAnimation(Skeleton.State.Walk);
+            this.skeleton.SetAnimation(Skeleton.State.Walk);
             this.skeleton.SetVelocity(30, 1);
             this.changed = true;
         }

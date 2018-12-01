@@ -23,7 +23,7 @@ class Skeleton extends Unit
         this.scale = 6;
     }
 
-    public setAnimation(NewState : State) : void
+    public SetAnimation(NewState : State) : void
     {
         switch(NewState){
             case State.Idle: {
@@ -38,7 +38,7 @@ class Skeleton extends Unit
         this.Current.Reset();
     }
 
-    public setContent(context) : void
+    public SetContent(context) : void
     {
         this.Idle = new Animation(context, "../assets/spritesheets/skeleton/skeletonidle.png", 24, 32, 11, 10);
         this.Walk = new Animation(context, "../assets/spritesheets/skeleton/skeletonwalk.png", 22, 33, 13, 10);
@@ -53,9 +53,7 @@ class Skeleton extends Unit
 
     public Draw(Batch : SpriteBatch) : void
     {
-        
         const destination = new Rectangle(this.x, this.y, this.Current.GetWidth()*this.scale, this.Current.GetHeight()*this.scale);
-
         Batch.QueueDraw(this.Current.GetTexture(), destination, this.Current.GetRectangle());
     }
 
