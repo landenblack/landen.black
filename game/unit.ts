@@ -56,7 +56,6 @@ class Unit
 
     public Update(TimePassed : number) : void
     {
-        debugger;
         this.x = this.xv * TimePassed;
         this.y = this.yv * TimePassed;
         this.Time += TimePassed;
