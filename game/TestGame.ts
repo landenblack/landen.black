@@ -32,7 +32,7 @@ class TestGame extends GameBase
     public Tick(DeltaTime : number) : void
     {
         this.time += DeltaTime;
-        if (!this.Batch.IsLoaded() || this.time < 2 ) return;
+        if (!this.Batch.IsLoaded() || this.time < 1 ) return;
 
         if (this.time > 10 && !this.changed) {
             this.skeleton.setAnimation(Skeleton.State.Walk);

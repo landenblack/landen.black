@@ -21,8 +21,8 @@ class Unit
 
     public Update(TimePassed : number) : void
     {
-        this.x = this.xv * TimePassed;
-        this.y = this.yv * TimePassed;
+        this.x += this.xv * TimePassed;
+        this.y += this.yv * TimePassed;
     }
 
     public SetVelocity(xv : number, yv : number) : void
