@@ -12,6 +12,8 @@ class Skeleton extends Unit
 {
     static readonly State = State;
 
+    private CurrentState : State;
+
     private Idle    : Animation;
     private Walk    : Animation;
     private Current : Animation;
@@ -27,6 +29,9 @@ class Skeleton extends Unit
 
     public SetAnimation(NewState : State) : void
     {
+        if (this.CurrentState === NewState) return;
+        this.CurrentState = NewState;
+
         switch(NewState){
             case State.Idle: {
                 this.Current = this.Idle;
@@ -65,8 +70,14 @@ class Skeleton extends Unit
             xv -= 1;
         }
 
-        this.SetVelocity(xv*this.speed, yv*this.speed);
-        
+        const length = Math.sqrt(xv*xv + yv*yv);
+        if (length === 0) {
+            this.SetAnimation(State.Idle);
+            this.SetVelocity(0, 0);
+        } else {
+            this.SetAnimation(State.Walk);
+            this.SetVelocity(xv*this.speed/length, yv*this.speed/length);
+        }
 
         super.Update(TimePassed);
         this.Current.Update(TimePassed);
