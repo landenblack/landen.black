@@ -21,7 +21,7 @@ class Skeleton extends Unit
     {
         super(downkeys);
 
-        this.speed = 30;
+        this.speed = 50;
         this.scale = 6;
     }
 
