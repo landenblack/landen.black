@@ -97,7 +97,7 @@ class Skeleton extends Unit
             Math.floor(this.x - (this.left ? -1 : 1) * this.Current.GetWidth() * this.scale / 2), 
             Math.floor(this.y - this.Current.GetHeight() * this.scale), 
             Math.floor((this.left ? -1 : 1) * this.Current.GetWidth() * this.scale), 
-            Math.floor(this.Current.GetHeight() * this.scale)
+            Math.floor(this.Current.GetHeight() * this.scale),
         );
         Batch.QueueDraw(this.Current.GetTexture(), destination, this.Current.GetRectangle());
     }

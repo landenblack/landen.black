@@ -28,7 +28,12 @@ class Animation
 
     public GetRectangle() : Rectangle
     {
-        return new Rectangle(Math.floor(this.frameWidth*this.GetCurrentFrame()), 0, this.frameWidth, this.frameHeight);
+        return new Rectangle(
+            Math.floor(this.frameWidth*this.GetCurrentFrame()), 
+            0, 
+            Math.floor(this.frameWidth), 
+            Math.floor(this.frameHeight),
+        );
     }
 
     public GetWidth() : number
