@@ -6,8 +6,8 @@ let LastTime : number;
 function Main() 
 {
     var Canvas = document.createElement("canvas");
-    Canvas.setAttribute("width", "1800");
-    Canvas.setAttribute("height", "960");
+    Canvas.setAttribute("width", "1920");
+    Canvas.setAttribute("height", "1080");
     document.body.appendChild(Canvas);
 
     const Context = Canvas.getContext("webgl2");
