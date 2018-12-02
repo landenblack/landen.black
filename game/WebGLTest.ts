@@ -6,7 +6,7 @@ let LastTime : number;
 function Main() 
 {
     var Canvas = document.createElement("canvas");
-    Canvas.setAttribute("width", "1920");
+    Canvas.setAttribute("width", "1800");
     Canvas.setAttribute("height", "1080");
     document.body.appendChild(Canvas);
 
