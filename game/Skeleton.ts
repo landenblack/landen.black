@@ -26,7 +26,7 @@ class Skeleton extends Unit
 
         this.left  = false;
         this.speed = 150;
-        this.scale = 2;
+        this.scale = 7;
     }
 
     public SetAnimation(NewState : State) : void
