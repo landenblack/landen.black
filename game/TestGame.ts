@@ -14,7 +14,7 @@ class TestGame extends GameBase
 
     public Initialize() : void
     {
-        this.Context.clearColor(0.68, 0.61, 0.54, 1.0);
+        this.Context.clearColor(...this.HexToRGB('#1D212C'), 1.0);
         this.Context.enable(this.Context.BLEND);
         this.Context.blendFunc(this.Context.SRC_ALPHA, this.Context.ONE_MINUS_SRC_ALPHA);
 
@@ -23,6 +23,16 @@ class TestGame extends GameBase
         this.Batch = new SpriteBatch(this.Context, this.Canvas, this.PATH);
         this.skeleton = new Skeleton(this.downkeys);
         this.skeleton.SetContent(this.Context);
+    }
+
+    public HexToRGB(hex : string) : Array<number>
+    {
+        hex = hex.replace('#', '');
+        let colors = new Array<number>();
+        colors = hex.match(/.{1,2}/g).map((number)=>{
+            return parseInt(number, 16) / 100;
+        });
+        return colors;
     }
 
     public KeyUp(key : KeyboardEvent) : void 
