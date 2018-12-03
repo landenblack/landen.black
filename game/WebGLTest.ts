@@ -7,7 +7,7 @@ function Main()
 {
     var Canvas = document.createElement("canvas");
     Canvas.setAttribute("width", "1000");
-    Canvas.setAttribute("height", "1000");
+    Canvas.setAttribute("height", "500");
     document.body.appendChild(Canvas);
 
     const Context = Canvas.getContext("webgl2");
