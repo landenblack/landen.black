@@ -30,7 +30,7 @@ class TestGame extends GameBase
         hex = hex.replace('#', '');
         let colors = new Array<number>();
         colors = hex.match(/.{1,2}/g).map((number)=>{
-            return parseInt(number, 16) / 100;
+            return parseInt(number, 16) / 255;
         });
         return colors;
     }
