@@ -29,10 +29,13 @@ app.post("/git/", function (req, res) {
   }
 });
 
-
-
 app.get('/list/', function (req, res) {
   res.sendFile(__dirname+'/list/list.html');
+  return;
+});
+
+app.get('/list/jquery.sortable.js', function (req, res) {
+  res.sendFile(__dirname+'/list/jquery.sortable.js');
   return;
 });
 
