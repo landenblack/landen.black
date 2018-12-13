@@ -4,6 +4,10 @@
   <script>
     $(()=> {
       $('.sortable').sortable();
+
+      $('.sortable').sortable({
+          connectWith: '.connected'
+      });
     })
   </script>
 </head>
