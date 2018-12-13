@@ -3,7 +3,9 @@
   <script src="./jquery.sortable.js"></script>
   <script>
     $(()=> {
-      $('.sortable').sortable();
+      $('.sortable').sortable({
+          connectWith: '.connected'
+      });
     })
   </script>
   <style>
@@ -12,6 +14,11 @@
       margin: 0;
       padding: 0;
     }
+    
+    .sortable-placeholder {
+      height: 150px;
+    }
+
     ul {
       min-height: 260px;
       background: lightblue;
