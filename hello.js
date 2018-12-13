@@ -29,9 +29,7 @@ app.post("/git/", function (req, res) {
   }
 });
 
-app.get('/', function (req, res) {
-  res.sendFile(__dirname+'/index.html');
-});
+
 
 app.get('/list/', function (req, res) {
   res.sendFile(__dirname+'/list/list.html');
@@ -40,22 +38,27 @@ app.get('/list/', function (req, res) {
 
 app.get('/game/', function (req, res) {
   res.sendFile(__dirname+'/game/game.html');
+  return;
 });
 
 app.get('/tetris/', function (req, res) {
   res.sendFile(__dirname+'/tetris/tetris.html');
+  return;
 });
 
 app.get('/tetris/local/', function (req, res) {
   res.sendFile(__dirname+'/tetris/local/tetris.html');
+  return;
 });
 
 app.get('/tetris/multiplayer/', function (req, res) {
   res.sendFile(__dirname+'/tetris/multiplayer/tetris.html');
+  return;
 });
 
 app.get('*', function (req, res) {
   res.sendFile(__dirname+'/index.html');
+  return;
 });
 
 app.listen(8080);
