@@ -33,6 +33,10 @@ app.get('/', function (req, res) {
   res.sendFile(__dirname+'/index.html');
 });
 
+app.get('/list/', function (req, res) {
+  res.sendFile(__dirname+'/list/index.html');
+});
+
 app.get('/game/', function (req, res) {
   res.sendFile(__dirname+'/game/game.html');
 });
