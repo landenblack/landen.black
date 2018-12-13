@@ -34,7 +34,7 @@ app.get('/', function (req, res) {
 });
 
 app.get('/list/', function (req, res) {
-  res.sendFile(__dirname+'/list/index.html');
+  res.sendFile(__dirname+'/list/list.html');
 });
 
 app.get('/game/', function (req, res) {
