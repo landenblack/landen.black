@@ -4,7 +4,7 @@ function hello() {
         type: "GET",
         url: "/list/server/",
         dataType: "json",
-        data: {t: "z"}
+        data: JSON.stringify({t: "z"})
     }).done(function (data) {
         console.log(data.a);
     });
