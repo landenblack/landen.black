@@ -1,7 +1,7 @@
 function hello() {
     console.log('doing');
     $.ajax({
-        type: "GET",
+        type: "POST",
         url: "/list/server/",
         dataType: "json",
         data: JSON.stringify({t: "z"})
