@@ -23,7 +23,7 @@ app.post("/git/", function (req, res) {
     
   }
 });*/
-
+console.log('z');
 app.get('/list/server/', function (req, res) {
     console.log('a');
     res.json({a: "b"});
