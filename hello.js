@@ -29,18 +29,25 @@ app.post("/git/", function (req, res) {
   }
 });
 
-app.get('/list/', function (req, res) {
-  res.sendFile(__dirname+'/list/list.html');
-  return;
-});
+
+
 app.get('/list/server/', function (req, res) {
   console.log('a');
+  console.log(req);
   res.json({a: "b"});
   return;
 });
 
+app.get('/list/', function (req, res) {
+  res.sendFile(__dirname+'/list/list.html');
+  return;
+});
 app.get('/list/jquery.sortable.js', function (req, res) {
   res.sendFile(__dirname+'/list/jquery.sortable.js');
+  return;
+});
+app.get('/list/list.functions.js', function (req, res) {
+  res.sendFile(__dirname+'/list/list.functions.js');
   return;
 });
 

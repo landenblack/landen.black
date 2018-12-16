@@ -1,6 +1,7 @@
 <head>
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
   <script src="./jquery.sortable.js"></script>
+  <script src="./list.functions.js"></script>
   <script>
     $(()=> {
       $('.sortable').sortable({
@@ -8,16 +9,6 @@
       });
     })
 
-    function hello() {
-      console.log('doing');
-      $.ajax({
-        type: "GET",
-        url: "/list/server/",
-        dataType: "json"
-      }).done(function (data) {
-        console.log(data.a);
-      });
-    }
   </script>
   <style>
     *{
