@@ -31,7 +31,7 @@ app.post("/git/", function (req, res) {
 });
 
 
-eval(fs.readFileSync("./list/list.client.js").toString());
+require('./list/list.server.js')();
 app.post('/list/server/', function (req, res) {
   test(req.body.t);
   console.log('a');

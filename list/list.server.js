@@ -1,3 +1,5 @@
-function test(word) {
-    console.log(word)
+module.exports = function() {
+    this.test = function(word) {
+        console.log(word);
+    }
 }
