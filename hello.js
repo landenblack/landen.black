@@ -2,7 +2,7 @@ var    express = require('express');
 var        app = express();
 var       exec = require('child_process').exec;
 var bodyParser = require('body-parser');
-
+var         fs = require('fs');
 
 app.use("/assets", express.static('assets'));
 app.use("/game", express.static('game'));
@@ -31,8 +31,9 @@ app.post("/git/", function (req, res) {
 });
 
 
-
+eval(fs.readFileSync("./list/list.client.js").toString());
 app.post('/list/server/', function (req, res) {
+  test(req.body.t);
   console.log('a');
   console.log(req.body.t);
   res.json({a: "b"});
