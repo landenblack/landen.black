@@ -33,8 +33,8 @@ app.post("/git/", function (req, res) {
 
 require('./list/list.server.js')();
 app.post('/list/server/', function (req, res) {
-  test(req.body.t);
-  console.log('a');
+  var file = test(req.body.t);
+  console.log(file);
   res.json({a: "b"});
   return;
 });
