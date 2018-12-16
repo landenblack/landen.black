@@ -48,8 +48,8 @@ app.get('/list/jquery.sortable.js', function (req, res) {
   res.sendFile(__dirname+'/list/jquery.sortable.js');
   return;
 });
-app.get('/list/list.functions.js', function (req, res) {
-  res.sendFile(__dirname+'/list/list.functions.js');
+app.get('/list/list.client.js', function (req, res) {
+  res.sendFile(__dirname+'/list/list.client.js');
   return;
 });
 
