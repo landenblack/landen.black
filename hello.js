@@ -33,7 +33,7 @@ app.post("/git/", function (req, res) {
 
 app.get('/list/server/', function (req, res) {
   console.log('a');
-  console.log(req);
+  console.log(req.body);
   res.json({a: "b"});
   return;
 });
