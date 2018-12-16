@@ -5,6 +5,6 @@ module.exports = function() {
 
     this.test = function(word) {
         console.log('test');
-        return fsz.readFileSync('./books.json').toString();
+        return fsz.readFileSync('./list/books.json').toString();
     }
 }
