@@ -33,6 +33,11 @@ app.get('/list/', function (req, res) {
   res.sendFile(__dirname+'/list/list.html');
   return;
 });
+app.get('/list/server/', function (req, res) {
+  console.log('a');
+  res.json({a: "b"});
+  return;
+});
 
 app.get('/list/jquery.sortable.js', function (req, res) {
   res.sendFile(__dirname+'/list/jquery.sortable.js');
