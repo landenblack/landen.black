@@ -2,7 +2,6 @@ var    express = require('express');
 var        app = express();
 var       exec = require('child_process').exec;
 var bodyParser = require('body-parser');
-var         fs = require('fs');
 
 app.use("/assets", express.static('assets'));
 app.use("/game", express.static('game'));
@@ -33,8 +32,8 @@ app.post("/git/", function (req, res) {
 
 require('./list/list.server.js')();
 app.post('/list/server/', function (req, res) {
-  var file = test(req.body.t);
-  console.log(file);
+  var file = jsonFile(req.body.t);
+  console.log(file[0].title);
   res.json({a: "b"});
   return;
 });

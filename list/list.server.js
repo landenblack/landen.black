@@ -1,10 +1,13 @@
 
 
 module.exports = function() {
-    var fsz = require('fs');
+    var fs = require('fs');
 
-    this.test = function(word) {
-        console.log('test');
-        return fsz.readFileSync('./list/books.json').toString();
+    this.getFile = function(path) {
+        return fs.readFileSync(path).toString();
+    }
+
+    this.jsonFile = function(path) {
+        return JSON.parse(this.getFile(path));
     }
 }
