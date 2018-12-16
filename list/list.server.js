@@ -1,6 +1,10 @@
+
+
 module.exports = function() {
+    var fsz = require('fs');
+
     this.test = function(word) {
         console.log('test');
-        return fs.readFileSync('./books.json').toString();
+        return fsz.readFileSync('./books.json').toString();
     }
 }
