@@ -35,7 +35,6 @@ require('./list/list.server.js')();
 app.post('/list/server/', function (req, res) {
   test(req.body.t);
   console.log('a');
-  console.log(req.body.t);
   res.json({a: "b"});
   return;
 });
