@@ -32,7 +32,7 @@ app.post("/git/", function (req, res) {
 
 require('./list/list.server.js')();
 app.post('/list/server/', function (req, res) {
-  var file = jsonFile(req.body.t);
+  var file = jsonFile(".list/books.json");
   console.log(file[0].title);
   res.json({a: "b"});
   return;
