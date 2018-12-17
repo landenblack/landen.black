@@ -55,9 +55,8 @@ function appendLists(data) {
 
             for (let book in data[list].books) {
                 let bookid = data[list].books[book].bookid;
-                console.log(bookid);
                 $(`.all-books li div[data-id='${bookid}'`).parent()
-                .appendTo("#user-lists div ul").last();
+                .appendTo($("#user-lists div ul").last());
             }
         }
     }
