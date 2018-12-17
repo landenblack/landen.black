@@ -31,14 +31,16 @@ function getLists() {
         console.log(data);
         for (let list in data) {
 
-            $(listHTML(data[list])).insertBefore("#new-list");
+            if ($(`#user-lists ul[data-id='${data[list].listid}']`).length === 0) {
+                $(listHTML(data[list])).insertBefore("#new-list");
 
-            for (let book in data[list].books) {
-                let bookid = data[list].books[book].bookid;
-                console.log($(`.all-books li div[data-id='${bookid}'`));
-                console.log($("#user-lists ul").last());
-                $(`.all-books li div[data-id='${bookid}'`)
-                  .appendTo("#user-lists ul").last();
+                for (let book in data[list].books) {
+                    let bookid = data[list].books[book].bookid;
+                    console.log($(`.all-books li div[data-id='${bookid}'`));
+                    console.log($("#user-lists ul").last());
+                    $(`.all-books li div[data-id='${bookid}'`)
+                    .appendTo("#user-lists ul").last();
+                }
             }
         }
         $('.sortable').sortable({
