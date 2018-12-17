@@ -1,7 +1,7 @@
 function pageLoad() {
     getBooks(true);
 
-    var all_books = $("#all-books");
+    var all_books = document.getElementById("all-books");
     // Multi groups
 	Sortable.create(all_books, {
 		animation: 150,
