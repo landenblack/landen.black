@@ -37,6 +37,8 @@ module.exports = function() {
     }
 
     this.getListBooks = function(list, list_details) {
+        console.log(list_details);
+        console.log( list_details.filter(details => details.listid === list));
         return list_details.filter(details => details.listid === list)
     }
 
