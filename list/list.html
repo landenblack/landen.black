@@ -10,10 +10,16 @@
       pageLoad();
 
       $("#new-list").on("click", function() {
-        console.log("click");
         var name = prompt("Please enter the name for the new list.");
         if (name.length) {
           createList(name);
+        }
+      });
+
+      $(".delete-list").on("click", function() {
+        var delete_list = confirm("Are you sure you want to delete this list?");
+        if (delete_list) {
+          console.log($(this);
         }
       });
     })
