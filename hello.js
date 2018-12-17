@@ -34,6 +34,7 @@ require('./list/list.server.js')();
 app.post('/list/server/', function (req, res) {
   var user = "1"; // replaced with user session
   console.log(req.body);
+  
   if (req.body.action === "get_books") {
     res.json(jsonFile("./list/books.json"));
     return;

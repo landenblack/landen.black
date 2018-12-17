@@ -1,6 +1,14 @@
 [
     {
-        "id" : "999",
+        "listid" : "999",
         "book" : "5c1685d495d8d361e681bb46"
+    },
+    {
+        "listid" : "999",
+        "book" : "5c1685d490705ab8928255ca"
+    },
+    {
+        "listid" : "990",
+        "book" : "not your book"
     }
 ]

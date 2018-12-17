@@ -1,12 +1,12 @@
 [
     {
         "user" : "1",
-        "list" : "999",
+        "listid" : "999",
         "name" : "Christmas List"
     },
     {
         "user" : "2",
-        "list" : "989",
+        "listid" : "989",
         "name" : "Joe List"
     }
 ]
