@@ -7,6 +7,8 @@
       $('.sortable').sortable({
           connectWith: '.connected'
       });
+
+      getBooks();
     })
 
   </script>
@@ -67,13 +69,18 @@
       margin-top: 10px;
       font-size: 1em;
     }
+
+    .column {
+      display: inline-block;
+      width: 50%;
+    }
   </style>
 </head>
-<div id="all-books">
+<div id="all-books" class="column">
   <h2>Books</h2>
   <ul class="sortable all-books"></ul>
 </div>
 
-<div id="user-books">
+<div id="user-books" class="column">
   <h2>Your Lists</h2>
 </div>
