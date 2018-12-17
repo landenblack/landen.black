@@ -20,6 +20,7 @@
         var delete_list = confirm("Are you sure you want to delete this list?");
         if (delete_list) {
           var list = $(this).siblings("ul");
+          console.log(list);
           list.children().appendTo(".all-books");
           deleteList(list.data("id"));
           $(this).parent().remove();
