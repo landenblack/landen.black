@@ -64,7 +64,7 @@ function appendLists(data) {
         connectWith: ".sortable"
     });
     $( ".sortable" ).sortable({
-        update: function( event, ui ) {
+        change: function( event, ui ) {
             console.log(event, ui)
         }
     });
