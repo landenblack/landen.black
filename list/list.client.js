@@ -14,7 +14,7 @@ function getBooks() {
 }
 
 function bookHTML(book) {
-    hmtl = `
+    return `
     <li>
       <div class="book" data-id="${book._id}">
           <div class="image"><img src="${book.picture}"></div>
