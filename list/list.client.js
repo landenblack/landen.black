@@ -28,7 +28,7 @@ function getLists() {
     }).done(function (data) {
         for (let list in data) {
             $("#user-lists").append(listHTML(data[list]));
-            $("<li>test").appendTo($("#user-lists").last());
+            $("<li>test").appendTo($("#user-lists ul:last-child"));
         }
         $('.sortable').sortable({
             connectWith: '.connected'
