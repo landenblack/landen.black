@@ -8,7 +8,7 @@ function getBooks() {
     }).done(function (data) {
         console.log(data);
         for (let book in data) {
-            console.log(book);
+            $(".all-books").append(bookHTML(data[book]));
         }
     });
 }
