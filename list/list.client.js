@@ -64,8 +64,10 @@ function appendLists(data) {
         connectWith: ".sortable"
     });
     $( ".sortable" ).sortable({
-        change: function( event, ui ) {
-            console.log(event, ui)
+        update: function( event, ui ) {
+            if (this === ui.item.parent()[0]) {
+                console.log(event, ui)
+            }
         }
     });
 }
