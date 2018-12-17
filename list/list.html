@@ -28,11 +28,10 @@
       });
 
       $("body").on("click", ".remove-book", function() {
-        console.log($(this));
         if ($(this).parents('ul').hasClass('user-books')) {
-          console.log('remove');
-          removeBook($(this).parent().parent().data('id'));
-          $(this).appendTo(".all-books");
+          var book_el = $(this).parent().parent();
+          removeBook(book_el.data('id'));
+          $(book_el).appendTo(".all-books");
         }
       });
     })
