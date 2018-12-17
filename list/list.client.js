@@ -67,7 +67,7 @@ function appendLists(data) {
         update: function( event, ui ) {
             if (this === ui.item.parent()[0]) {
                 let book = $(this).children().data('id');
-                if ($(this).parent().hasClass('all-books') {
+                if ($(this).parent().hasClass('all-books')) {
                     removeBook(book);
                 } else {
                     let list = $(this).parent().data('id');
