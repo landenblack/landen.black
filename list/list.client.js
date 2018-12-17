@@ -1,5 +1,14 @@
 function pageLoad() {
     getBooks(true);
+
+    var all_books = $("#all-books");
+    // Multi groups
+	Sortable.create(all_books, {
+		animation: 150,
+		draggable: '.book',
+        group: "books"
+	});
+
 }
 
 function createList(name) {
@@ -54,7 +63,7 @@ function appendLists(data) {
 
             for (let book in data[list].books) {
                 let bookid = data[list].books[book].bookid;
-                $(`.all-books li div[data-id='${bookid}'`)
+                $(`.all-books li div[data-id='${bookid}'`).parent()
                 .appendTo("#user-lists div ul").last();
             }
         }
@@ -72,8 +81,8 @@ function listHTML(list) {
 
 function bookHTML(book) {
     return `
-    <li>
-      <div class="book" data-id="${book._id}">
+    <li class="book">
+      <div data-id="${book._id}">
           <div class="image"><img src="${book.picture}"></div>
           <div class="details">
             <span class="title">${book.title}</span>
