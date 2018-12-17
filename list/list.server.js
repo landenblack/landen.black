@@ -8,6 +8,7 @@ module.exports = function() {
         var id = 0;
         for (let list in lists) {
             console.log(`id = ${id}`)
+            console.log(`listid = ${lists[list].listid}`)
             if (lists[list].listid > id) {
                 console.log(`id < ${lists[list].listid}`)
                 id = lists[list].listid;
