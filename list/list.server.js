@@ -13,7 +13,7 @@ module.exports = function() {
         console.log(lists);
         lists.push({
             "user":user,
-            "listid":id,
+            "listid":id.toString(),
             "name":name
         });
         console.log(lists);
