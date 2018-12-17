@@ -66,11 +66,14 @@ function appendLists(data) {
     $( ".sortable" ).sortable({
         update: function( event, ui ) {
             if (this === ui.item.parent()[0]) {
+                console.log(this);
                 let book = $(this).children().data('id');
                 if ($(this).parent().hasClass('all-books')) {
+                    console.log('a')
                     removeBook(book);
                 } else {
                     let list = $(this).parent().data('id');
+                    console.log('b')
                     addBookToList(book, list);
                 }
             }
