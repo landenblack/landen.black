@@ -40,12 +40,12 @@ app.post('/list/server/', function (req, res) {
   }
 
   if (req.body.action === "delete_list") {
-    res.json(deleteList(user, req.body.list));
+    res.json(deleteList(user, req.body.list.toString()));
     return;
   }
 
   if (req.body.action === "add_book") {
-    addBookToList(req.body.book, req.body.list, user);
+    addBookToList(req.body.book.toString(), req.body.list.toString(), user);
     res.json({m:"book added"});
     return;
   }
