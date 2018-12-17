@@ -33,7 +33,7 @@ app.post("/git/", function (req, res) {
 require('./list/list.server.js')();
 app.get('/list/server/', function (req, res) {
   console.log("here");
-  console.log(req.body.action);
+  console.log(req.body);
   if (req.body.action === "get_books") {
     res.json(jsonFile("./list/books.json"));
     return;
