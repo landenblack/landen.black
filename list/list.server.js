@@ -8,11 +8,9 @@ module.exports = function() {
         var user_lists = lists.filter(list => list.user === user);
 
         var list_details = this.jsonFile("./list/listdetails.json");
-        console.log(list_details);
-        console.log(user_lists);
-        var with_books = user_lists.map(list => list.books = "a");
-        console.log(user_lists);
-        return with_books;
+        user_lists.map(list => list.books = getListBooks(list.listid, list_details));
+        
+        return user_lists;
     }
 
     this.getListBooks = function(list, list_details) {
