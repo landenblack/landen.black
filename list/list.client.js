@@ -1,9 +1,8 @@
 function pageLoad() {
-    getBooks();
-    getLists();
+    getBooks(true);
 }
 
-function getBooks() {
+function getBooks(get_lists) {
     $.ajax({
         type: "POST",
         url: "/list/server/",
@@ -14,6 +13,9 @@ function getBooks() {
         console.log(data);
         for (let book in data) {
             $(".all-books").append(bookHTML(data[book]));
+        }
+        if (get_lists) {
+            getLists();
         }
     });
 }
