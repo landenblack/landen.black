@@ -33,6 +33,8 @@ function getLists() {
 
             for (let book in data[list].books) {
                 let bookid = data[list].books[book].bookid;
+                console.log($(`.all-books li div[data-id='${bookid}'`));
+                console.log($("#user-lists ul").last());
                 $(`.all-books li div[data-id='${bookid}'`)
                   .appendTo("#user-lists ul").last();
             }
