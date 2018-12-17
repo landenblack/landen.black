@@ -27,7 +27,7 @@ function getLists() {
         dataType: "json"
     }).done(function (data) {
         for (let list in data) {
-            $("#user-lists").append(listHTML(data[book]));
+            $("#user-lists").append(listHTML(data[list]));
         }
         $('.sortable').sortable({
             connectWith: '.connected'
