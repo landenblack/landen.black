@@ -26,6 +26,10 @@
           $(this).parent().remove();
         }
       });
+
+      $("body").on("click", ".remove-book", function() {
+        console.log($(this));
+      });
     })
 
   </script>
@@ -118,6 +122,10 @@
 
     #new-list {
       text-align: center;
+      cursor: pointer;
+    }
+
+    .remove-book {
       cursor: pointer;
     }
   </style>

@@ -133,6 +133,7 @@ function bookHTML(book) {
           <div class="details">
             <span class="title">${book.title}</span>
             <span class="price">${book.price}</span>
+            <span class="remove-book">Remove</span>
           </div>
         </div>
     `;
