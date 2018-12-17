@@ -1,10 +1,5 @@
 function pageLoad() {
     getBooks(true);
-
-    var all_books = document.getElementById("all-books");
-    // Multi groups
-	
-
 }
 
 function createList(name) {
@@ -64,6 +59,9 @@ function appendLists(data) {
             }
         }
     }
+    $(".user-books, .all-books").sortable({
+        connectWith: ".sortable"
+    });
 }
 
 function listHTML(list) {
