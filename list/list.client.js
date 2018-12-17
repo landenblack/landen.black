@@ -11,7 +11,7 @@ function createList(name) {
         dataType: "json"
     }).done(function (data) {
         console.log(data);
-        
+        appendLists(data);
     });
 }
 

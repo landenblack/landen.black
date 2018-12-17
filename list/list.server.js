@@ -14,11 +14,13 @@ module.exports = function() {
         }
         ++id;
         
-        lists.push({
+        const new_list = {
             "user":user,
             "listid":id.toString(),
             "name":name
-        });
+        };
+
+        lists.push(new_list);
         console.log(lists);
 
         fs.writeFile("./list/lists.json", JSON.stringify(lists), (err)=> {
@@ -26,7 +28,7 @@ module.exports = function() {
             console.log(`list ${name} created`);
         });
 
-        return {new_id : id};
+        return [new_list];
     }
 
     this.getLists = function(user) {
