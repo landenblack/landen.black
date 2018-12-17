@@ -10,7 +10,7 @@ module.exports = function() {
         } else {
             var id = "1";
         }
-        lists.append({
+        lists.push({
             "user":user,
             "listid":id,
             "name":name
