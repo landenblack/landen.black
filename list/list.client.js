@@ -3,11 +3,9 @@ function pageLoad() {
 
     var all_books = document.getElementById("all-books");
     // Multi groups
-	Sortable.create(all_books, {
-		animation: 150,
-		draggable: '.book',
-        group: "books"
-	});
+	$(".user-books, .all-books").sortable({
+        connectWith: ".sortable"
+    });
 
 }
 
