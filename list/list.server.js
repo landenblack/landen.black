@@ -10,7 +10,7 @@ module.exports = function() {
         var list_details = this.jsonFile("./list/listdetails.json");
         console.log(list_details);
         console.log(user_lists);
-        var with_books = user_lists.map(list => list.books = getListBooks(list.listid, list_details));
+        var with_books = user_lists.map(list => list.books = "a");
         console.log(with_books);
         return with_books;
     }
