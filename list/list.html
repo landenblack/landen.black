@@ -7,6 +7,12 @@
       pageLoad();
     })
 
+    $("#new-list").on("click", function() {
+      var name = prompt("Please enter the name for the new list.");
+      if (name.length) {
+        console.log(name);
+      }
+    });
   </script>
   <style>
     *{
