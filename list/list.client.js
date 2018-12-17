@@ -32,7 +32,10 @@ function getLists() {
             $("#user-lists").append(listHTML(data[list]));
 
             for (let book in data[list].books) {
-                console.log(data[list].books[book]);
+                let bookid = data[list].books[book].bookid;
+                $(`.all-books li div[data-id='${bookid}'`)
+                  .clone()
+                  .appendTo("#user-lists ul:last-child");
             }
 
             $("<li>test").appendTo($("#user-lists ul:last-child"));
