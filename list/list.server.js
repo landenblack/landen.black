@@ -3,13 +3,31 @@
 module.exports = function() {
     var fs = require('fs');
 
+    this.createList = function(user, name) {
+        var lists = this.jsonFile("./list/lists.json");
+        if (lists.length) {
+            var id = lists[lists.length -1];
+        } else {
+            var id = "1";
+        }
+        lists.append({
+            "user":user,
+            "listid":id,
+            "name":name
+        });
+        fs.writeFile("./list/lists.json", lists, (err)=> {
+            if (err) throw err;
+            console.log(`list ${name} created`);
+        });
+    }
+
     this.getLists = function(user) {
         var lists = this.jsonFile("./list/lists.json");
-        var user_lists = lists.filter(list => list.user === user);
-
         var list_details = this.jsonFile("./list/listdetails.json");
+
+        var user_lists = lists.filter(list => list.user === user);
         user_lists.map(list => list.books = getListBooks(list.listid, list_details));
-        
+
         return user_lists;
     }
 

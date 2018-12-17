@@ -2,6 +2,20 @@ function pageLoad() {
     getBooks(true);
 }
 
+function createList(name) {
+    $.ajax({
+        type: "POST",
+        url: "/list/server/",
+        data: JSON.stringify({action: "create_list", name: name}),
+        contentType: 'application/json',
+        dataType: "json"
+    }).done(function (data) {
+        console.log(data);
+        
+    });
+}
+
+
 function getBooks(get_lists) {
     $.ajax({
         type: "POST",
@@ -28,25 +42,23 @@ function getLists() {
         contentType: 'application/json',
         dataType: "json"
     }).done(function (data) {
-        console.log(data);
-        for (let list in data) {
+        appendLists(data);
+    });
+}
 
-            if ($(`#user-lists ul[data-id='${data[list].listid}']`).length === 0) {
-                $(listHTML(data[list])).insertBefore("#new-list");
+function appendLists(data) {
+    for (let list in data) {
 
-                for (let book in data[list].books) {
-                    let bookid = data[list].books[book].bookid;
-                    console.log($(`.all-books li div[data-id='${bookid}'`));
-                    console.log($("#user-lists ul").last());
-                    $(`.all-books li div[data-id='${bookid}'`)
-                    .appendTo("#user-lists ul").last();
-                }
+        if ($(`#user-lists ul[data-id='${data[list].listid}']`).length === 0) {
+            $(listHTML(data[list])).insertBefore("#new-list");
+
+            for (let book in data[list].books) {
+                let bookid = data[list].books[book].bookid;
+                $(`.all-books li div[data-id='${bookid}'`)
+                .appendTo("#user-lists ul").last();
             }
         }
-        $('.sortable').sortable({
-            connectWith: '.connected'
-        });
-    });
+    }
 }
 
 function listHTML(list) {
