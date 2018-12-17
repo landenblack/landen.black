@@ -49,13 +49,13 @@ function getLists() {
 function appendLists(data) {
     for (let list in data) {
 
-        if ($(`#user-lists ul[data-id='${data[list].listid}']`).length === 0) {
+        if ($(`#user-lists div ul[data-id='${data[list].listid}']`).length === 0) {
             $(listHTML(data[list])).insertBefore("#new-list");
 
             for (let book in data[list].books) {
                 let bookid = data[list].books[book].bookid;
                 $(`.all-books li div[data-id='${bookid}'`)
-                .appendTo("#user-lists ul").last();
+                .appendTo("#user-lists div ul").last();
             }
         }
     }
@@ -63,8 +63,10 @@ function appendLists(data) {
 
 function listHTML(list) {
     return `
-    <h2>${list.name}</h2><h3 class="delete-list">Delete List</h3>
+    <div class="user-list">
+    <h2>${list.name}</h2><h2 class="delete-list">delete list</h2>
     <ul class="sortable user-books" data-id=${list.listid}></ul>
+    </div>
     `;
 }
 
