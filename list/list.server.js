@@ -7,7 +7,9 @@ module.exports = function() {
         var lists = this.jsonFile("./list/lists.json");
         var id = 0;
         for (let list in lists) {
+            console.log(`id = ${id}`)
             if (lists[list].listid > id) {
+                console.log(`id < ${lists[list].listid}`)
                 id = lists[list].listid;
             }
         }
