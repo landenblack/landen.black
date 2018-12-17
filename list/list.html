@@ -29,6 +29,10 @@
 
       $("body").on("click", ".remove-book", function() {
         console.log($(this));
+        if ($(this).parents('ul').hasClass('.user-books')) {
+          removeBook($(this).parent().parent().data('id'));
+          $(this).appendTo(".all-books");
+        }
       });
     })
 
@@ -127,6 +131,14 @@
 
     .remove-book {
       cursor: pointer;
+    }
+
+    .all-books .remove-book {
+      display: none;
+    }
+
+    .user-list .remove-book {
+      display: inherit;
     }
   </style>
 </head>
