@@ -12,13 +12,15 @@ module.exports = function() {
             }
         }
         id++;
-
+        
+        console.log(lists);
         lists.push({
             "user":user,
             "listid":id.toString(),
             "name":name
         });
-
+        console.log(lists);
+        
         fs.writeFile("./list/lists.json", JSON.stringify(lists), (err)=> {
             if (err) throw err;
             console.log(`list ${name} created`);
