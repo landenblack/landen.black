@@ -15,7 +15,7 @@ module.exports = function() {
             "listid":id,
             "name":name
         });
-        fs.writeFile("./list/lists.json", lists, (err)=> {
+        fs.writeFile("./list/lists.json", JSON.stringify(lists), (err)=> {
             if (err) throw err;
             console.log(`list ${name} created`);
         });
