@@ -37,16 +37,14 @@ module.exports = function() {
     }
 
     this.getListBooks = function(list, list_details) {
-        console.log(list_details);
-        console.log( list_details.filter(details => details.listid === list));
         return list_details.filter(details => details.listid === list)
     }
 
     this.addBookToList = function(book, list, user) {
         var new_details = this.removeBook(book, user); //remove if currently exists
         new_details.push({
-            "listid":list,
-            "bookid":book
+            "listid":list.toString(),
+            "bookid":book.toString()
         }); //append to file
         fs.writeFile("./list/listdetails.json", JSON.stringify(new_details), (err)=> {
             if (err) throw err;
