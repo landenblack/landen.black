@@ -11,7 +11,7 @@ module.exports = function() {
         console.log(list_details);
         console.log(user_lists);
         var with_books = user_lists.map(list => list.books = "a");
-        console.log(with_books);
+        console.log(user_lists);
         return with_books;
     }
 
