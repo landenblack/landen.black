@@ -34,7 +34,7 @@ function getLists() {
             for (let book in data[list].books) {
                 let bookid = data[list].books[book].bookid;
                 $(`.all-books li div[data-id='${bookid}'`)
-                  .appendTo("#user-lists ul:last-child");
+                  .appendTo("#user-lists ul").last();
             }
         }
         $('.sortable').sortable({
