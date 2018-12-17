@@ -68,6 +68,7 @@ function appendLists(data) {
             if (this === ui.item.parent()[0]) {
                 console.log(event, ui);
                 console.log(this);
+                console.log(ui.item[0])
             }
         }
     });
