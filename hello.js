@@ -46,7 +46,7 @@ app.post('/list/server/', function (req, res) {
   }
 
   if (req.body.action === "remove_book") {
-    writeJson("./list/lists.json", removeBook(req.body.book, user));
+    writeJson("./list/listdetails.json", removeBook(req.body.book, user));
     res.json({m:"book removed"});
     return;
   }

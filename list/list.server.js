@@ -46,7 +46,7 @@ module.exports = function() {
             "listid":list,
             "bookid":book
         }); //append to file
-        fs.writeFile(path, JSON.stringify(new_details), (err)=> {
+        fs.writeFile("./list/listdetails.json", JSON.stringify(new_details), (err)=> {
             if (err) throw err;
             console.log(`book added`);
         });
