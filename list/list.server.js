@@ -6,7 +6,7 @@ module.exports = function() {
     this.createList = function(user, name) {
         var lists = this.jsonFile("./list/lists.json");
         if (lists.length) {
-            var id = lists[lists.length -1];
+            var id = Number(lists[lists.length -1].listid) +1;
         } else {
             var id = "1";
         }
