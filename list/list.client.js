@@ -26,6 +26,7 @@ function getLists() {
         contentType: 'application/json',
         dataType: "json"
     }).done(function (data) {
+        console.log(data);
         for (let list in data) {
 
             $("#user-lists").append(listHTML(data[list]));
