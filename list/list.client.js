@@ -3,9 +3,7 @@ function pageLoad() {
 
     var all_books = document.getElementById("all-books");
     // Multi groups
-	$(".user-books, .all-books").sortable({
-        connectWith: ".sortable"
-    });
+	
 
 }
 
