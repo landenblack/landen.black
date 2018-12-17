@@ -66,17 +66,15 @@ function appendLists(data) {
     $( ".sortable" ).sortable({
         update: function( event, ui ) {
             if (this === ui.item.parent()[0]) {
-                console.log(this)
-                console.log(ui)
-
-                let book = $(this).children().data('id');
-                if ($(this).parent().hasClass('all-books')) {
+                let book = ui.item[0];
+                let bookid = $(book).children().data('id');
+                if ($(book).parent().hasClass('all-books')) {
                     console.log('a')
-                    removeBook(book);
+                    removeBook(bookid);
                 } else {
-                    let list = $(this).parent().data('id');
+                    let list = $(book).parent().data('id');
                     console.log('b')
-                    addBookToList(book, list);
+                    addBookToList(bookid, list);
                 }
             }
         }
