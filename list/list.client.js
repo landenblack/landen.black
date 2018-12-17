@@ -66,7 +66,8 @@ function appendLists(data) {
     $( ".sortable" ).sortable({
         update: function( event, ui ) {
             if (this === ui.item.parent()[0]) {
-                console.log(event, ui)
+                console.log(event, ui);
+                console.log(this);
             }
         }
     });
