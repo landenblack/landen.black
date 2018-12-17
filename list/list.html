@@ -29,8 +29,8 @@
 
       $("body").on("click", ".remove-book", function() {
         if ($(this).parents('ul').hasClass('user-books')) {
-          var book_el = $(this).parent().parent();
-          removeBook(book_el.data('id'));
+          var book_el = $(this).parents('li');
+          removeBook(book_el.children('div').data('id'));
           $(book_el).appendTo(".all-books");
         }
       });
