@@ -11,7 +11,9 @@ module.exports = function() {
                 id = lists[list].listid;
             }
         }
+        console.log(id);
         ++id;
+        console.log(id);
         
         console.log(lists);
         lists.push({
