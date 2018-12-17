@@ -63,7 +63,7 @@ function appendLists(data) {
 
 function listHTML(list) {
     return `
-    <h2>${list.name}</h2><h2 class="delete-list">Delete List</h2>
+    <h2>${list.name}</h2><h3 class="delete-list">Delete List</h3>
     <ul class="sortable user-books" data-id=${list.listid}></ul>
     `;
 }
