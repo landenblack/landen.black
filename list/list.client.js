@@ -65,8 +65,8 @@ function appendLists(data) {
     });
     $( ".sortable" ).sortable({
         update: function( event, ui ) {
+            console.log(this)
             if (this === ui.item.parent()[0]) {
-                console.log(this);
                 let book = $(this).children().data('id');
                 if ($(this).parent().hasClass('all-books')) {
                     console.log('a')
