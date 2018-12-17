@@ -4,11 +4,7 @@
   <script src="./list.client.js"></script>
   <script>
     $(()=> {
-      $('.sortable').sortable({
-          connectWith: '.connected'
-      });
-
-      getBooks();
+      pageLoad();
     })
 
   </script>
@@ -75,7 +71,7 @@
       width: 40%;
       vertical-align: top;
     }
-    #user-books {
+    #user-lists {
       float: right;
     }
   </style>
@@ -85,6 +81,4 @@
   <ul class="sortable all-books"></ul>
 </div>
 
-<div id="user-books" class="column">
-  <h2>Your Lists</h2>
-</div>
+<div id="user-lists" class="column"></div>

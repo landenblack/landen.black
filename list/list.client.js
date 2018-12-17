@@ -1,3 +1,8 @@
+function pageLoad() {
+    getBooks();
+    getLists();
+}
+
 function getBooks() {
     $.ajax({
         type: "POST",
@@ -21,8 +26,20 @@ function getLists() {
         contentType: 'application/json',
         dataType: "json"
     }).done(function (data) {
-        console.log(data);
+        for (let list in data) {
+            $("#user-lists").append(listHTML(data[book]));
+        }
+        $('.sortable').sortable({
+            connectWith: '.connected'
+        });
     });
+}
+
+function listHTML(list) {
+    return `
+    <h2>${list.name}</h2>
+    <ul class="sortable user-books" data-id=${list.listid}></ul>
+    `;
 }
 
 function bookHTML(book) {
