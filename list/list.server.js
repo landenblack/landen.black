@@ -7,18 +7,13 @@ module.exports = function() {
         var lists = this.jsonFile("./list/lists.json");
         var id = 0;
         for (let list in lists) {
-            console.log(`id = ${id}`)
-            console.log(`listid = ${lists[list].listid}`)
-            if (Number(lists[list].listid) > id) {
-                console.log(`id < ${lists[list].listid}`)
-                id = Number(lists[list].listid);
+            let listid = Number(lists[list].listid);
+            if (listid > id) {
+                id = listid;
             }
         }
-        console.log(id);
         ++id;
-        console.log(id);
         
-        console.log(lists);
         lists.push({
             "user":user,
             "listid":id.toString(),
@@ -30,6 +25,8 @@ module.exports = function() {
             if (err) throw err;
             console.log(`list ${name} created`);
         });
+
+        return {new_id : id};
     }
 
     this.getLists = function(user) {

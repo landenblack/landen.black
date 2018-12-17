@@ -35,8 +35,7 @@ app.post('/list/server/', function (req, res) {
   var user = "1"; // replaced with user session
   console.log(req.body);
   if (req.body.action === "create_list") {
-    createList(user, req.body.name);
-    res.json("done");
+    res.json(createList(user, req.body.name));
     return;
   }
 
