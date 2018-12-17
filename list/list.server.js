@@ -5,18 +5,20 @@ module.exports = function() {
 
     this.createList = function(user, name) {
         var lists = this.jsonFile("./list/lists.json");
-        if (lists.length) {
-            var id = Number(lists[lists.length -1].listid) +1;
-        } else {
-            var id = "1";
+        var id = 0;
+        for (let list in lists) {
+            if (lists[list].listid > id) {
+                id = lists[list].listid;
+            }
         }
-        console.log(lists);
+        id++;
+
         lists.push({
             "user":user,
             "listid":id.toString(),
             "name":name
         });
-        console.log(lists);
+
         fs.writeFile("./list/lists.json", JSON.stringify(lists), (err)=> {
             if (err) throw err;
             console.log(`list ${name} created`);
