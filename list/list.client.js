@@ -13,6 +13,18 @@ function getBooks() {
     });
 }
 
+function getLists() {
+    $.ajax({
+        type: "POST",
+        url: "/list/server/",
+        data: JSON.stringify({action: "get_lists"}),
+        contentType: 'application/json',
+        dataType: "json"
+    }).done(function (data) {
+        console.log(data);
+    });
+}
+
 function bookHTML(book) {
     return `
     <li>
