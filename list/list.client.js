@@ -1,5 +1,6 @@
 function pageLoad() {
     getBooks(true);
+    
 }
 
 function createList(name) {
@@ -61,6 +62,11 @@ function appendLists(data) {
     }
     $(".user-books, .all-books").sortable({
         connectWith: ".sortable"
+    });
+    $( ".sortable" ).sortable({
+        update: function( event, ui ) {
+            console.log(event, ui)
+        }
     });
 }
 
