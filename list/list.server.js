@@ -19,14 +19,9 @@ module.exports = function() {
             "listid":id.toString(),
             "name":name
         };
-
         lists.push(new_list);
-        console.log(lists);
 
-        fs.writeFile("./list/lists.json", JSON.stringify(lists), (err)=> {
-            if (err) throw err;
-            console.log(`list ${name} created`);
-        });
+        this.writeJson("./list/lists.json", lists);
 
         return [new_list];
     }
@@ -45,11 +40,32 @@ module.exports = function() {
         return list_details.filter(details => details.listid === list)
     }
 
+    this.removeBook = function(book, user) {
+        var current_lists = this.jsonFile("./list/lists.json");
+        var list_details = this.jsonFile("./list/listdetails.json");
+        console.log('current');
+        console.log(list_details);
+        var user_lists = current_lists.filter(list => list.user === user);
+        for (let i in user_lists) {
+            let list_id = user_lists[i].listid;
+            list_details = list_details.filter(list => !(list.listid === list_id && list.bookid === book));
+        }
+        console.log(`with ${book} removed`);
+        console.log(list_details);
+    }
+
     this.getFile = function(path) {
         return fs.readFileSync(path).toString();
     }
 
     this.jsonFile = function(path) {
         return JSON.parse(this.getFile(path));
+    }
+
+    this.writeJson = function(path, data) {
+        fs.writeFile(path, JSON.stringify(data), (err)=> {
+            if (err) throw err;
+            console.log(`wrote to ${path}`);
+        });
     }
 }

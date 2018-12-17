@@ -39,6 +39,10 @@ app.post('/list/server/', function (req, res) {
     return;
   }
 
+  if (req.body.action === "remove_book") {
+    removeBook(req.body.book, user);
+  }
+
   if (req.body.action === "get_books") {
     res.json(jsonFile("./list/books.json"));
     return;

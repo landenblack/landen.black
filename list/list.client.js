@@ -66,11 +66,41 @@ function appendLists(data) {
     $( ".sortable" ).sortable({
         update: function( event, ui ) {
             if (this === ui.item.parent()[0]) {
-                console.log(event, ui);
-                console.log(this);
-                console.log(ui.item[0])
+                let book = $(this).children().data('id');
+                if ($(this).parent().hasClass('all-books') {
+                    removeBook(book);
+                } else {
+                    let list = $(this).parent().data('id');
+                    addBookToList(book, list);
+                }
             }
         }
+    });
+}
+
+function addBookToList(book, list) {
+    console.log(`add ${book} to ${list}`);
+    $.ajax({
+        type: "POST",
+        url: "/list/server/",
+        data: JSON.stringify({action: "add_book", book: book, list: list}),
+        contentType: 'application/json',
+        dataType: "json"
+    }).done(function (data) {
+        console.log(data);
+    });
+}
+
+function removeBook(book) {
+    console.log(`remove ${book}`);
+    $.ajax({
+        type: "POST",
+        url: "/list/server/",
+        data: JSON.stringify({action: "remove_book", book: book}),
+        contentType: 'application/json',
+        dataType: "json"
+    }).done(function (data) {
+        console.log(data);
     });
 }
 
