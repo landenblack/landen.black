@@ -16,6 +16,17 @@ function createList(name) {
     });
 }
 
+function deleteList(list) {
+    $.ajax({
+        type: "POST",
+        url: "/list/server/",
+        data: JSON.stringify({action: "delete_list", list: list}),
+        contentType: 'application/json',
+        dataType: "json"
+    }).done(function (data) {
+        console.log(data);
+    });
+}
 
 function getBooks(get_lists) {
     $.ajax({

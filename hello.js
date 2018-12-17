@@ -39,6 +39,11 @@ app.post('/list/server/', function (req, res) {
     return;
   }
 
+  if (req.body.action === "delete_list") {
+    res.json(deleteList(user, req.body.list));
+    return;
+  }
+
   if (req.body.action === "add_book") {
     addBookToList(req.body.book, req.body.list, user);
     res.json({m:"book added"});

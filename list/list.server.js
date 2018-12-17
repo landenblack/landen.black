@@ -26,6 +26,19 @@ module.exports = function() {
         return [new_list];
     }
 
+    this.deleteList = function(user, listid) {
+        var lists = this.jsonFile("./list/lists.json");
+        var list_details = this.jsonFile("./list/listdetails.json");
+
+        var updated_lists = lists.filter(list => !(list.listid === listid && list.user === user));
+        var updated_details = list_details.filter(list => list.listid !== listid);
+
+        this.writeJson("./list/lists.json", updated_lists);
+        this.writeJson("./list/listdetails.json", updated_details);
+
+        return {m: "removed"};
+    }
+
     this.getLists = function(user) {
         var lists = this.jsonFile("./list/lists.json");
         var list_details = this.jsonFile("./list/listdetails.json");
