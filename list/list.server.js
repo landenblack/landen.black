@@ -40,18 +40,29 @@ module.exports = function() {
         return list_details.filter(details => details.listid === list)
     }
 
+    this.addBookToList = function(book, list, user) {
+        var new_details = this.removeBook(book, user); //remove if currently exists
+        new_details.push({
+            "listid":list,
+            "bookid":book
+        }); //append to file
+        fs.writeFile(path, JSON.stringify(new_details), (err)=> {
+            if (err) throw err;
+            console.log(`book added`);
+        });
+        
+    }
+
     this.removeBook = function(book, user) {
         var current_lists = this.jsonFile("./list/lists.json");
         var list_details = this.jsonFile("./list/listdetails.json");
-        console.log('current');
-        console.log(list_details);
+
         var user_lists = current_lists.filter(list => list.user === user);
         for (let i in user_lists) {
             let list_id = user_lists[i].listid;
             list_details = list_details.filter(list => !(list.listid === list_id && list.bookid === book));
         }
-        console.log(`with ${book} removed`);
-        console.log(list_details);
+        return list_details;
     }
 
     this.getFile = function(path) {

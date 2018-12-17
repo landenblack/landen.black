@@ -69,11 +69,9 @@ function appendLists(data) {
                 let book = ui.item[0];
                 let bookid = $(book).children().data('id');
                 if ($(book).parent().hasClass('all-books')) {
-                    console.log('a')
                     removeBook(bookid);
                 } else {
                     let list = $(book).parent().data('id');
-                    console.log('b')
                     addBookToList(bookid, list);
                 }
             }
