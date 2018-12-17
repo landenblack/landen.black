@@ -56,8 +56,8 @@ app.get('/list/', function (req, res) {
   res.sendFile(__dirname+'/list/list.html');
   return;
 });
-app.get('/list/jquery.sortable.js', function (req, res) {
-  res.sendFile(__dirname+'/list/jquery.sortable.js');
+app.get('/list/sortable.js', function (req, res) {
+  res.sendFile(__dirname+'/list/sortable.js');
   return;
 });
 app.get('/list/list.client.js', function (req, res) {
