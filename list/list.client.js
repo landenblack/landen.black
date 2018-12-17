@@ -29,15 +29,13 @@ function getLists() {
         console.log(data);
         for (let list in data) {
 
-            $("#user-lists").append(listHTML(data[list]));
+            $(listHTML(data[list])).insertBefore("#new-list");
 
             for (let book in data[list].books) {
                 let bookid = data[list].books[book].bookid;
                 $(`.all-books li div[data-id='${bookid}'`)
                   .appendTo("#user-lists ul:last-child");
             }
-
-            $("<li>test").appendTo($("#user-lists ul:last-child"));
         }
         $('.sortable').sortable({
             connectWith: '.connected'
