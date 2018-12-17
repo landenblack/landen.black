@@ -6,6 +6,6 @@ function getBooks() {
         dataType: "json",
         contentType: 'application/json; charset=utf-8'
     }).done(function (data) {
-        console.log(data.a);
+        console.log(data);
     });
 }
