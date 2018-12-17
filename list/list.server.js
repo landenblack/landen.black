@@ -10,11 +10,13 @@ module.exports = function() {
         } else {
             var id = "1";
         }
+        console.log(lists);
         lists.push({
             "user":user,
             "listid":id,
             "name":name
         });
+        console.log(lists);
         fs.writeFile("./list/lists.json", JSON.stringify(lists), (err)=> {
             if (err) throw err;
             console.log(`list ${name} created`);
