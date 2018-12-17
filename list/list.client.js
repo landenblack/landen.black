@@ -1,6 +1,6 @@
 function getBooks() {
     $.ajax({
-        type: "POST",
+        type: "GET",
         url: "/list/server/",
         data: JSON.stringify({action: "get_books"}),
         dataType: "json",
