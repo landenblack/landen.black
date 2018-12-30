@@ -101,7 +101,7 @@ class Skeleton extends Unit
             (( NDCTopLeft.x + 1) / 2 ) * Camera.GetScreen().x,
             ((-NDCTopLeft.y + 1) / 2 ) * Camera.GetScreen().y,
             ((        NDCSize.x) / 2 ) * Camera.GetScreen().x,
-            ((       -NDCSize.y) / 2 ) * Camera.GetScreen().y,
+            ((        NDCSize.y) / 2 ) * Camera.GetScreen().y,
         );
 
         let source = this.Current.GetRectangle();
