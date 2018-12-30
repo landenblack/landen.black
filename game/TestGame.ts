@@ -41,6 +41,7 @@ class TestGame extends GameBase
 
     public KeyUp(key : KeyboardEvent) : void 
     {
+        console.log(key.key);
         this.downkeys.delete(key.key);
     }
 

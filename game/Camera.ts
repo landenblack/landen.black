@@ -41,10 +41,10 @@ class Camera
         let dy = 0;
 
         if (this.downkeys.has('ArrowUp')) {
-            dy -= 1;
+            dy += 1;
         }
         if (this.downkeys.has('ArrowDown')) {
-            dy += 1;
+            dy -= 1;
         }
         if (this.downkeys.has('ArrowRight')) {
             dx += 1;
