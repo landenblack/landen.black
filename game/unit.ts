@@ -1,36 +1,32 @@
 import SpriteBatch = require("../MOEnjs/SpriteBatch/SpriteBatch");
+import Vector2D = require("./Vector2D");
 
 class Unit
 {
-    protected x : number;
-    protected xv : number;
-    protected y : number;
-    protected yv : number;
-    protected scale  : number;
+    protected position : Vector2D;
+    protected velocity : Vector2D;
+    protected scale    : Vector2D;
     protected downkeys : Set<string>;
 
-    public constructor(downkeys : Set<string>) 
+    public constructor(position : Vector2D, velocity : Vector2D, scale : Vector2D, downkeys : Set<string>) 
     {
-        this.x = 100;
-        this.y = 100;
-        this.xv = 1;
-        this.yv = 1;
+        this.position = position;
+        this.velocity = velocity;
+        this.scale    = scale;
 
         this.downkeys = downkeys;
-        this.scale = 1;
-
     }
 
     public Update(TimePassed : number) : void
     {
-        this.x += this.xv * TimePassed;
-        this.y += this.yv * TimePassed;
+        this.position.x += this.velocity.x * TimePassed;
+        this.position.y += this.velocity.y * TimePassed;
     }
 
-    public SetVelocity(xv : number, yv : number) : void
+    public SetVelocity(dx : number, dy : number) : void
     {
-        this.xv = xv;
-        this.yv = yv;
+        this.velocity.x = dx;
+        this.velocity.y = dy;
     }
 }
 

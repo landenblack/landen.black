@@ -3,6 +3,8 @@ import SpriteBatch = require("../MOEnjs/SpriteBatch/SpriteBatch");
 import Texture2D = require("../MOEnjs/Texture2D");
 import Rectangle = require("../MOEnjs/Rectangle");
 import Skeleton = require("../game/Skeleton");
+import Vector2D = require("./Vector2D");
+import Camera = require("./Camera");
 
 class TestGame extends GameBase
 {
@@ -11,6 +13,7 @@ class TestGame extends GameBase
     private time : number;
     private skeleton : Skeleton;
     private downkeys : Set<string>;
+    private camera : Camera;
 
     public Initialize() : void
     {
@@ -21,8 +24,9 @@ class TestGame extends GameBase
         this.time = 0;
         this.downkeys = new Set<string>();
         this.Batch = new SpriteBatch(this.Context, this.Canvas, this.PATH);
-        this.skeleton = new Skeleton(this.downkeys);
+        this.skeleton = new Skeleton(new Vector2D(0,0), this.downkeys);
         this.skeleton.SetContent(this.Context);
+        this.camera = new Camera(new Vector2D(0, 1.8), 1, new Vector2D(7.2, 3.6), new Vector2D(this.Canvas.GetWidth(), this.Canvas.GetHeight()), this.downkeys);
     }
 
     public HexToRGB(hex : string) : Array<number>
@@ -54,7 +58,7 @@ class TestGame extends GameBase
 
         this.Context.clear(this.Context.COLOR_BUFFER_BIT);
         this.skeleton.Update(DeltaTime);
-        this.skeleton.Draw(this.Batch);
+        this.skeleton.Draw(this.Batch, this.camera);
         this.Batch.ExecuteDraws();
     }
 }

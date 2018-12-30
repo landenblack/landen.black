@@ -2,6 +2,8 @@ import Rectangle   = require("../MOEnjs/Rectangle");
 import Unit        = require("./unit");
 import Animation   = require("./Animation");
 import SpriteBatch = require("../MOEnjs/SpriteBatch/SpriteBatch");
+import Vector2D    = require("./Vector2D");
+import Camera      = require("./Camera")
 
 enum State {
     Idle, 
@@ -20,13 +22,12 @@ class Skeleton extends Unit
     private speed   : number;
     private left    : boolean;
 
-    public constructor(downkeys : Set<string>)
+    public constructor(position : Vector2D, downkeys : Set<string>)
     {
-        super(downkeys);
+        super(position, new Vector2D(0, 0), new Vector2D(1.35, 1.8), downkeys);
 
         this.left  = false;
-        this.speed = 150;
-        this.scale = 7;
+        this.speed = 3;
     }
 
     public SetAnimation(NewState : State) : void
@@ -56,50 +57,65 @@ class Skeleton extends Unit
 
     public Update(TimePassed : number) : void
     {
-        let xv = 0;
-        let yv = 0;
+        let dx = 0;
+        let dy = 0;
 
-        if (this.downkeys.has('ArrowUp')) {
-            yv -= 1;
+        if (this.downkeys.has('W')) {
+            dy -= 1;
         }
-        if (this.downkeys.has('ArrowDown')) {
-            yv += 1;
+        if (this.downkeys.has('S')) {
+            dy += 1;
         }
-        if (this.downkeys.has('ArrowRight')) {
-            xv += 1;
+        if (this.downkeys.has('D')) {
+            dx += 1;
         }
-        if (this.downkeys.has('ArrowLeft')) {
-            xv -= 1;
+        if (this.downkeys.has('A')) {
+            dx -= 1;
         }
 
-        const length = Math.sqrt(xv*xv + yv*yv);
+        const length = Math.sqrt(dx*dx + dy*dy);
         if (length === 0) {
             this.SetAnimation(State.Idle);
             this.SetVelocity(0, 0);
         } else {
             this.SetAnimation(State.Walk);
-            this.SetVelocity(xv*this.speed/length, yv*this.speed/length);
+            this.SetVelocity(dx*this.speed/length, dy*this.speed/length);
         }
 
         super.Update(TimePassed);
-        if (xv < 0) {
+        if (dx < 0) {
             this.left = true;
-        } else if (xv > 0) {
+        } else if (dx > 0) {
             this.left = false;
         }
         this.Current.Update(TimePassed);
-
     }
 
-    public Draw(Batch : SpriteBatch) : void
+    public Draw(Batch : SpriteBatch, Camera : Camera) : void
     {
+        const CameraSpace = this.position.Subtract(Camera.GetPosition());
+        const TopLeft = CameraSpace.Add(new Vector2D(-this.scale.x/2, this.scale.y));
+        const NDCTopLeft = new Vector2D(TopLeft.x / Camera.GetRegion().x / 2, TopLeft.y / Camera.GetRegion().y / 2);
+        const NDCSize = new Vector2D(this.scale.x / Camera.GetRegion().x / 2, this.scale.y / Camera.GetRegion().y / 2);
         const destination = new Rectangle(
-            Math.floor(this.x - (this.left ? -1 : 1) * this.Current.GetWidth() * this.scale / 2), 
-            Math.floor(this.y - this.Current.GetHeight() * this.scale), 
-            Math.floor((this.left ? -1 : 1) * this.Current.GetWidth() * this.scale), 
-            Math.floor(this.Current.GetHeight() * this.scale),
+            (( NDCTopLeft.x + 1) / 2 ) * Camera.GetScreen().x,
+            ((-NDCTopLeft.y + 1) / 2 ) * Camera.GetScreen().y,
+            ((        NDCSize.x) / 2 ) * Camera.GetScreen().x,
+            ((       -NDCSize.y) / 2 ) * Camera.GetScreen().y,
         );
-        Batch.QueueDraw(this.Current.GetTexture(), destination, this.Current.GetRectangle());
+
+        let source = this.Current.GetRectangle();
+
+        if (this.left) {
+            source = new Rectangle(
+                source.X + source.Width, 
+                source.Y, 
+                -source.Width, 
+                source.Height
+            );
+        }
+        
+        Batch.QueueDraw(this.Current.GetTexture(), destination, source);
     }
 
     
