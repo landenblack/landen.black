@@ -93,6 +93,7 @@ class Skeleton extends Unit
 
     public Draw(Batch : SpriteBatch, Camera : Camera) : void
     {
+        debugger;
         const CameraSpace = this.position.Subtract(Camera.GetPosition());
         const TopLeft = CameraSpace.Add(new Vector2D(-this.scale.x/2, this.scale.y));
         const NDCTopLeft = new Vector2D(TopLeft.x / Camera.GetRegion().x / 2, TopLeft.y / Camera.GetRegion().y / 2);
