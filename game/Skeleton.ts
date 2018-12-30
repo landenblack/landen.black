@@ -60,16 +60,16 @@ class Skeleton extends Unit
         let dx = 0;
         let dy = 0;
 
-        if (this.downkeys.has('W')) {
+        if (this.downkeys.has('w')) {
             dy -= 1;
         }
-        if (this.downkeys.has('S')) {
+        if (this.downkeys.has('s')) {
             dy += 1;
         }
-        if (this.downkeys.has('D')) {
+        if (this.downkeys.has('d')) {
             dx += 1;
         }
-        if (this.downkeys.has('A')) {
+        if (this.downkeys.has('a')) {
             dx -= 1;
         }
 
