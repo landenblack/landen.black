@@ -52,12 +52,11 @@ class TestGame extends GameBase
     public Tick(DeltaTime : number) : void
     {
         this.time += DeltaTime;
-        if (!this.Batch.IsLoaded() || this.time < 1 ) return;
-
-        
+        if (!this.Batch.IsLoaded() || this.time < 1 ) return;      
 
         this.Context.clear(this.Context.COLOR_BUFFER_BIT);
         this.skeleton.Update(DeltaTime);
+        this.camera.Update(DeltaTime);
         this.skeleton.Draw(this.Batch, this.camera);
         this.Batch.ExecuteDraws();
     }
