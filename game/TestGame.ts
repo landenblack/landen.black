@@ -55,12 +55,14 @@ class TestGame extends GameBase
     public Tick(DeltaTime : number) : void
     {
         this.time += DeltaTime;
-        if (!this.Batch.IsLoaded() || this.time < 1 ) return;      
+        if (!this.Batch.IsLoaded() || this.time < 1 ) return;
 
         this.Context.clear(this.Context.COLOR_BUFFER_BIT);
         this.skeleton.Update(DeltaTime);
         this.camera.Update(DeltaTime);
-        this.Batch.QueueDraw(this.tileset.GetTexture(), new Rectangle(0, 0, 100, 100), this.tileset.GetTile('grave'));
+        if (this.tileset.IsLoaded()) {
+            this.Batch.QueueDraw(this.tileset.GetTexture(), new Rectangle(0, 0, 100, 100), this.tileset.GetTile('grave'));
+        }
         this.skeleton.Draw(this.Batch, this.camera);
         this.Batch.ExecuteDraws();
     }

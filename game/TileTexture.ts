@@ -7,6 +7,7 @@ class TileTexture {
     private rows : number
     private columns : number
     private tiles : Map<string, number>
+    private loaded : boolean;
 
     public constructor(context : WebGL2RenderingContext, metadata : string) {
         var request = new XMLHttpRequest();
@@ -21,6 +22,7 @@ class TileTexture {
                     me.rows = parseInt(lines[1]);
                     me.columns = parseInt(lines[2]);
                     me.image = new Texture2D(context, lines[0]);
+                    me.loaded = true;
                     let current : number = 0;
                     for (let line of lines.slice(2)) {
                         me.tiles.set(line, current)
@@ -31,6 +33,10 @@ class TileTexture {
         }
         
         
+    }
+
+    public IsLoaded() : boolean {
+        return this.loaded && this.image.IsLoaded();
     }
 
     public GetTile(tile : string) : Rectangle {
