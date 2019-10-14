@@ -1,4 +1,4 @@
-bit_tileset.png
+../assets/spritesheets/bit_tileset.png
 8
 8
 bricks top left
