@@ -12,6 +12,7 @@ class TileTexture {
     public constructor(context : WebGL2RenderingContext, metadata : string) {
         var request = new XMLHttpRequest();
         let me = this;
+        this.tiles = new Map<string, number>();
         request.open('GET', metadata, true);
         request.send(null);
         request.onreadystatechange = function () {
