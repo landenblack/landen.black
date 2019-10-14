@@ -44,10 +44,8 @@ class TileTexture {
         let TileWidth : number = this.image.GetWidth() / this.columns;
         let TileHeight : number = this.image.GetHeight() / this.rows;
 
-        let row : number = TileNumber / this.columns;
+        let row : number = Math.floor(TileNumber / this.columns);
         let col : number = TileNumber % this.columns;
-
-        console.log(row, col);
 
         let topleft : Vector2D = new Vector2D(col * TileWidth, row * TileHeight);
 
