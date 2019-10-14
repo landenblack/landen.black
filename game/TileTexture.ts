@@ -25,7 +25,7 @@ class TileTexture {
                     this.loaded = true;
                     let current : number = 0;
                     for (let line of lines.slice(2)) {
-                        this.tiles.set(line, current)
+                        this.tiles.set(line, current);
                         current++;
                     }
                 }
