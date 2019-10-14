@@ -1,0 +1,67 @@
+bit_tileset.png
+8
+8
+bricks top left
+bricks top middle
+bricks top right
+square
+mini squares
+ledge left
+ledge middle
+ledge right
+bricks middle left
+bricks center
+bricks middle right
+sphere top left
+sphere top right
+fire 1
+fire 2
+fire 3
+bricks bottom left
+bricks bottom middle
+bricks bottom right
+sphere bottom left
+sphere bottom right
+bridge left
+bridge center
+bridge right
+chain top
+box
+door locked
+door open
+key
+syringe
+ceiling
+book
+chain bottom
+chest
+grave
+grave broken
+ladder top
+ladder body
+sign
+
+soul 1
+soul 2
+soul 3
+soul 4
+soul 5
+soul 6
+
+
+coin 1
+coin 2
+coin 3
+coin 4
+coin 5
+coin 6
+
+
+slime 1
+slime 2
+slime 3
+slime 4
+slime 5
+slime 6
+
+black
