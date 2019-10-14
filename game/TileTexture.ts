@@ -47,7 +47,7 @@ class TileTexture {
         let row : number = TileNumber / this.columns;
         let col : number = TileNumber % this.columns;
 
-        let topleft : Vector2D = new Vector2D(row * TileHeight, col * TileWidth);
+        let topleft : Vector2D = new Vector2D(col * TileWidth, row * TileHeight);
 
         return new Rectangle(topleft.x, topleft.y, TileWidth, TileHeight);
     }
