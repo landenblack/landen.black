@@ -11,22 +11,21 @@ class TileTexture {
 
     public constructor(context : WebGL2RenderingContext, metadata : string) {
         var request = new XMLHttpRequest();
-        let me = this;
         this.tiles = new Map<string, number>();
         request.open('GET', metadata, true);
         request.send(null);
-        request.onreadystatechange = function () {
+        request.onreadystatechange = () => {
             if (request.readyState === 4 && request.status === 200) {
                 var type = request.getResponseHeader('Content-Type');
                 if (type.indexOf("text") !== 1) {
                     let lines : string[] = request.responseText.split("\n");
-                    me.rows = parseInt(lines[1]);
-                    me.columns = parseInt(lines[2]);
-                    me.image = new Texture2D(context, lines[0]);
-                    me.loaded = true;
+                    this.rows = parseInt(lines[1]);
+                    this.columns = parseInt(lines[2]);
+                    this.image = new Texture2D(context, lines[0]);
+                    this.loaded = true;
                     let current : number = 0;
                     for (let line of lines.slice(2)) {
-                        me.tiles.set(line, current)
+                        this.tiles.set(line, current)
                         current++;
                     }
                 }
