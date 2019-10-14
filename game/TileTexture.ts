@@ -1,7 +1,7 @@
 import Rectangle = require("../MOEnjs/Rectangle");
 import Texture2D = require("../MOEnjs/Texture2D");
 import Vector2D = require("./Vector2D");
-const fs = require("fs");
+import fs from "fs";
 
 class TileTexture {
     private image : Texture2D
@@ -10,16 +10,27 @@ class TileTexture {
     private tiles : Map<string, number>
 
     public constructor(context : WebGL2RenderingContext, metadata : string) {
-
-        let lines : string[] = fs.readFileSync(metadata).split("\n");
-        this.rows = parseInt(lines[1]);
-        this.columns = parseInt(lines[2]);
-        this.image = new Texture2D(context, lines[0]);
-        let current : number = 0;
-        for (let line of lines.slice(2)) {
-            this.tiles.set(line, current)
-            current++;
+        var request = new XMLHttpRequest();
+        let me = this;
+        request.open('GET', metadata, true);
+        request.send(null);
+        request.onreadystatechange = function () {
+            if (request.readyState === 4 && request.status === 200) {
+                var type = request.getResponseHeader('Content-Type');
+                if (type.indexOf("text") !== 1) {
+                    let lines : string[] = request.responseText.split("\n");
+                    me.rows = parseInt(lines[1]);
+                    me.columns = parseInt(lines[2]);
+                    me.image = new Texture2D(context, lines[0]);
+                    let current : number = 0;
+                    for (let line of lines.slice(2)) {
+                        me.tiles.set(line, current)
+                        current++;
+                    }
+                }
+            }
         }
+        
         
     }
 
