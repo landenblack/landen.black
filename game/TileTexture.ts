@@ -1,7 +1,6 @@
 import Rectangle = require("../MOEnjs/Rectangle");
 import Texture2D = require("../MOEnjs/Texture2D");
 import Vector2D = require("./Vector2D");
-import fs from "fs";
 
 class TileTexture {
     private image : Texture2D
