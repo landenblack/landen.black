@@ -24,7 +24,7 @@ class TileTexture {
                     this.image = new Texture2D(context, lines[0]);
                     this.loaded = true;
                     let current : number = 0;
-                    for (let line of lines.slice(2)) {
+                    for (let line of lines.slice(3)) {
                         this.tiles.set(line, current);
                         current++;
                     }
