@@ -19,53 +19,58 @@ body {
 }
 </style>
 <script>
-function pizza() {
-    const runE = document.getElementById("run");
-    const walkE = document.getElementById("walk");
-    const setsE = document.getElementById("sets");
-    var runTime = runE.value;
-    var walkTime = walkE.value;
-    var sets = setsE.value;
-    runE.remove();
-    walkE.remove();
-    setsE.remove();
+function running() {
+  console.log("a");
+  const runE = document.getElementById("run");
+  const walkE = document.getElementById("walk");
+  const setsE = document.getElementById("sets");
+  var runTime = runE.value;
+  var walkTime = walkE.value;
+  var sets = setsE.value;
+  runE.remove();
+  walkE.remove();
+  setsE.remove();
+  console.log("b");
 
-    const action = document.getElementById("action");
-    action.style.display = "block";
-    const timer = document.getElementById("timer");
-    timer.style.display = "block";
+  const action = document.getElementById("action");
+  action.style.display = "block";
+  const timer = document.getElementById("timer");
+  timer.style.display = "block";
 
-    var time;
+  var time;
 
-    var i = 0;
-    while (i < sets) {
-      // show other color
-      if (i % 2 == 0) {
-        action.innerText = "run";
-        action.style.color = "black";
-        document.body.style.backgroundColor = "purple";
-        time = runTime;
-      } else {
-        action.innerText = "walk";
-        action.style.color = "white";
-        document.body.style.backgroundColor = "green";
-        time = walkTime;
-      }
-      timer.innerText = time;
-      
-      while (timer.innerText > 0) {
-        setTimeout(function (){
-          timer.innerText = parseInt(timer.innerText) - 1;
-        }, 1000);
-      }
+  var i = 0;
+  console.log("c");
 
-      document.body.style.backgroundColor = "gray";
-      action.innerText = "";
-
-      setTimeout(function (){
-          console.log('wahoo');
-      }, 2000);
+  while (i < sets) {
+    // show other color
+    if (i % 2 == 0) {
+      action.innerText = "run";
+      action.style.color = "black";
+      document.body.style.backgroundColor = "purple";
+      time = runTime;
+    } else {
+      action.innerText = "walk";
+      action.style.color = "white";
+      document.body.style.backgroundColor = "green";
+      time = walkTime;
     }
+    timer.innerText = time;
+    console.log("d");
+
+    while (timer.innerText > 0) {
+      setTimeout(function () {
+        timer.innerText = parseInt(timer.innerText) - 1;
+      }, 1000);
+    }
+
+    document.body.style.backgroundColor = "gray";
+    action.innerText = "";
+
+    setTimeout(function () {
+      console.log("wahoo");
+    }, 2000);
+  }
 }
 </script>
 <div id="box">
@@ -73,7 +78,7 @@ function pizza() {
     <input type="text" id="run" name="run" placeholder="run time in seconds">
     <input type="text" id="walk" name="walk" placeholder="walk time in seconds">
     <input type="text" id="sets" name="sets" placeholder="sets">
-    <button type="button" onclick="pizza()">start</button>
+    <button type="button" onclick="running()">start</button>
     <div id="action" class="hidden"></div>
     <div id="timer" class="hidden"></div>
   </div>
