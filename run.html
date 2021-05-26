@@ -21,20 +21,20 @@ body {
 <script>
 function running() {
   console.log("a");
-  const runE = document.getElementById("run");
-  const walkE = document.getElementById("walk");
-  const setsE = document.getElementById("sets");
+  var runE = document.getElementById("run");
+  var walkE = document.getElementById("walk");
+  var setsE = document.getElementById("sets");
   var runTime = runE.value;
   var walkTime = walkE.value;
   var sets = setsE.value;
-  runE.remove();
-  walkE.remove();
-  setsE.remove();
+  runE.parentNode.removeChild(runE);
+  walkE.parentNode.removeChild(walkE);
+  setsE.parentNode.removeChild(setsE);
   console.log("b");
 
-  const action = document.getElementById("action");
+  var action = document.getElementById("action");
   action.style.display = "block";
-  const timer = document.getElementById("timer");
+  var timer = document.getElementById("timer");
   timer.style.display = "block";
 
   var time;
@@ -45,14 +45,18 @@ function running() {
   while (i < sets) {
     // show other color
     if (i % 2 == 0) {
+      console.log("asdf");
+
       action.innerText = "run";
       action.style.color = "black";
-      document.body.style.backgroundColor = "purple";
+      document.body.style.background = "purple";
       time = runTime;
     } else {
+      console.log("xzp");
+
       action.innerText = "walk";
       action.style.color = "white";
-      document.body.style.backgroundColor = "green";
+      document.body.style.background = "green";
       time = walkTime;
     }
     timer.innerText = time;
