@@ -1,0 +1,37 @@
+<title>run</title>
+<style>
+body {
+  height: 97vh;
+  background: #d6cec3;
+}
+
+#box {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 90%;
+}
+</style>
+<script>
+function pizza() {
+    const element = document.getElementById("greeting" );
+    pizzaRIP = element.getAttribute('data-rip');
+    element.style.cursor = "auto";
+    element.src = pizzaRIP+".png";
+    document.querySelector("link[rel*='icon']").href = pizzaRIP+".ico";
+    document.getElementById("greeting").innerHTML = "yum.";
+}
+</script>
+<div id="box">
+  <div id="greeting" class="title">
+    <input type="text" id="run" name="run" placeholder="run time in seconds">
+    <input type="text" id="walk" name="walk" placeholder="walk time in seconds">
+    <input type="text" id="sets" name="sets" placeholder="sets">
+  </div>
+  <button type="button" onclick="pizza()">start</button>
+  <button onclick='pizza()' id='pleasedonteatme' src='/public/pizza.png' data-rip='/public/eaten-pizza'> 
+  <img src='/public/eaten-pizza.png' hidden> 
+</div>
+ 

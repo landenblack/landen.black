@@ -102,6 +102,11 @@ app.get('/tetris/multiplayer/', function (req, res) {
   return;
 });
 
+app.get('/run/', function (req, res) {
+  res.sendFile(__dirname+'/run.html');
+  return;
+});
+
 app.get('*', function (req, res) {
   res.sendFile(__dirname+'/index.html');
   return;
